@@ -31,6 +31,8 @@ class Service extends ImageManager
 
         $fullPath = public_path($path) . "/" . $name;
 
+        dd($fullPath);
+
         if(!File::exists($fullPath)) {
             File::makeDirectory($fullPath, 775);
         }
