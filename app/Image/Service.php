@@ -31,13 +31,15 @@ class Service extends ImageManager
 
         $fullPath = public_path($path) . "/" . $name;
 
-        dd($fullPath);
 
         if(!File::exists($fullPath)) {
             File::makeDirectory($fullPath, 775);
         }
 
         $this->image->save($fullPath);
+
+        dd($fullPath);
+        
 
         $sizes = config('image.sizes');
 
