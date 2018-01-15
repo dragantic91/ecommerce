@@ -29,7 +29,12 @@ class Service extends ImageManager
 
         $name = $image->getClientOriginalName();
 
-        $fullPath = $path . "/" . $name;
+        $fullPath = public_path($path) . "/" . $name;
+
+
+        if(!File::exists(public_path($path))) {
+            File::makeDirectory(public_path($path), 775);
+        }
 
         $this->image->save($fullPath);
 
