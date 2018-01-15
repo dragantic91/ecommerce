@@ -33,7 +33,7 @@ class Service extends ImageManager
 
 
         if(!File::exists(public_path($path))) {
-            File::makeDirectory(public_path($path), 0775, true);
+            File::makeDirectory(public_path($path), 0777, true);
         }
 
         $this->image->save($fullPath);
