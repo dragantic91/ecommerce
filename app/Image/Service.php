@@ -29,12 +29,9 @@ class Service extends ImageManager
 
         $name = $image->getClientOriginalName();
 
-        $fullPath = public_path($path) . "/" . $name;
+        $fullPath = $path . "/" . $name;
 
         $this->image->save($fullPath);
-
-        dd($fullPath);
-
 
         $sizes = config('image.sizes');
 
