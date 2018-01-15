@@ -1,9 +1,0 @@
-
-.bg-site-color a {
-
-    color: #1a1a1a !important;
-}
-
-.bg-site-second-color {
-    background-color: #510094;
-}
