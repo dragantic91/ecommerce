@@ -18,7 +18,7 @@ Route::middleware(['web'])
 
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-        // START SCHOENGEBRAUCHT CATEGORY FRONT ROUTES /
+    // START SCHOENGEBRAUCHT CATEGORY FRONT ROUTES /
     Route::get('get_price_ranges', 'CategoryViewController@getPriceRanges');
     
     Route::get('/category',  ['as' => 'all.category.view',
