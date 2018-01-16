@@ -8,7 +8,6 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Support\Facades\Redirect; // Remove in production!!!
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
@@ -21,8 +20,7 @@ class FrontAuth
                 return response('Unauthorized.', 401);
             }
             else {
-                return Redirect::away('http://spotter.ch/schoengebraucht'); // Remove in production!!!
-                //return redirect()->guest('/login');
+                return redirect()->guest('/login');
             }
         }
 

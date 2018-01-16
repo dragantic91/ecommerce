@@ -9,7 +9,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Redirect; // Remove in production!!!
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,8 +24,7 @@ class AdminAuth
                 return response('Unauthorised.', 401);
             }
             else {
-                return Redirect::away('http://spotter.ch/schoengebraucht'); // Remove in production!!!
-                //return redirect()->route('admin.login');
+                return redirect()->route('admin.login');
             }
         }
 
