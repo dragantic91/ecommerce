@@ -11,6 +11,7 @@
 |
 */
 
+Route::redirect("/louisb", "/login", 301);
 
 Route::middleware(['web', 'front.auth']) // Remove 'front.auth' middleware in production!!!
 ->namespace('\Front')
