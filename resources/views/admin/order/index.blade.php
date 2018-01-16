@@ -14,7 +14,7 @@
                 <select class="form-control" name="select-status" onchange="location=this.value;">
                     <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_status' => '']), false)) }}"  @if (app('request')->input('delivery_status') == null || app('request')->input('delivery_status') == '') selected @endif>Wählen Sie den Lieferstatus</option>
                     <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_status' => '1']), false)) }}" @if (app('request')->input('delivery_status') == '1') selected @endif>Öffen</option>
-                    <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_status' => '2']), false)) }}" @if (app('request')->input('delivery_status') == '2') selected @endif>Geschlossen</option>
+                    <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_status' => '2']), false)) }}" @if (app('request')->input('delivery_status') == '2') selected @endif>Abgeschlossen</option>
                 </select>
             </div>
             <div class="col-3 text-right">

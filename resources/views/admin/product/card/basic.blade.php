@@ -40,13 +40,13 @@
         @include('admin.forms.text',['name' => 'price','label' => __('lang.order-price')])
     </div>
     <div class="col-6">
-        @include('admin.forms.select',['name' => 'status','label' => 'Status', 'options' => ['1' => __('lang.enabled'),'0' => __('lang.disabled')]])
+        @include('admin.forms.select',['name' => 'status','label' => 'Status', 'options' => ['1' => "Online",'0' => "Offline"]])
     </div>
 </div>
 
 <div class="row">
     <div class="col-6">
-        @include('admin.forms.select',['name' => 'discount','label' => __('lang.discount'), 'options' => ['1' => __('lang.enabled'),'0' => __('lang.disabled')]])
+        @include('admin.forms.select',['name' => 'discount','label' => __('lang.discount'), 'options' => ['1' => "Ja",'0' => "Nein"]])
     </div>
     <div class="col-6">
         @include('admin.forms.text',['name' => 'discount_price', 'label' => __('lang.discount-price')])
@@ -55,7 +55,7 @@
 
 <div class="row">
     <div class="col-6">
-        @include('admin.forms.select',['name' => 'delivery','label' => __('lang.delivery'), 'options' => ['1' => __('lang.enabled'),'0' => __('lang.disabled')]])
+        @include('admin.forms.select',['name' => 'delivery','label' => __('lang.delivery'), 'options' => ['1' => "Ja",'0' => "Nein"]])
     </div>
     <div class="col-6">
         @include('admin.forms.text',['name' => 'delivery_price','label' => __('lang.delivery-price')])
@@ -67,7 +67,7 @@
         @include('admin.forms.text',['name' => 'qty','label' => __('lang.quantity')])
     </div>
     <div class="col-6">
-        @include('admin.forms.select',['name' => 'in_stock','label' => __('lang.in-stock'), 'options' => ['1' => __('lang.enabled'),'0' => __('lang.disabled')]])
+        @include('admin.forms.select',['name' => 'in_stock','label' => __('lang.in-stock'), 'options' => ['1' => "Ja",'0' => "Nein"]])
     </div>
 </div>
 

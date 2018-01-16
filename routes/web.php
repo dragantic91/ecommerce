@@ -13,7 +13,7 @@
 
 Route::redirect("/luisb", "/login", 301);
 
-Route::middleware(['web', 'front.auth']) // Remove 'front.auth' middleware in production!!!
+Route::middleware(['web']) // Remove 'front.auth' middleware in production!!!
 ->namespace('\Front')
 ->group(function () {
 
@@ -119,7 +119,7 @@ Route::middleware(['web'])
     Route::get('password/reset', ['as' => 'admin.password.reset', 'uses' => 'ForgotPasswordController@showLinkRequestForm']);
 });
 
-Route::middleware(['web', 'admin.auth'])
+Route::middleware(['web'])
 ->prefix('admin')
 ->namespace('\Admin')
 ->group(function () {
