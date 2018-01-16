@@ -1,5 +1,6 @@
 vendor/
 node_modules/
+.idea/
 npm-debug.log
 
 # Laravel 4 specific
@@ -18,4 +19,10 @@ Homestead.json
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+<<<<<<< HEAD
 .idea/workspace.xml
+=======
+composer.lock
+>>>>>>> 8403923a972a38e9acabc7544304d81cbb3848f8
+.idea/workspace.xml
+*.xml
