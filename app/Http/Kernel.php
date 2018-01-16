@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'testprotection' => \App\Http\Middleware\TestProtection::class, // REMOVE IN PRODUCTION!!!
         'admin.auth' => \App\Http\Middleware\AdminAuth::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
