@@ -39,7 +39,7 @@ return [
     'select-delivery-type' => 'Select Delivery Type',
     'select-delivery-status' => 'Select Delivery Status',
     'newsletter' => 'Newsletter',
-    'slug' => 'Schnecke',
+    'slug' => 'Link',
     'description' => 'Beschreibung',
     'discount' => 'Rabatt',
     'discount-price' => 'Reduzierter Preis',

@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="h1">Edit Product</div>
+                <div class="h1">Produkt bearbeiten</div>
             </div>
         </div>
 
