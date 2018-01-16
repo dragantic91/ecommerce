@@ -28,4 +28,19 @@ class AddressController extends Controller
             ->with('user', $user)
             ->with('addresses', $addresses);
     }
+
+    public function show($id)
+    {
+        $address = Address::find($id);
+
+        if ($address !== null){
+            $address->delete();
+        }
+
+        return redirect()->route('my-account.address.index');
+    }
+
+    public function destroy($id)
+    {
+    }
 }

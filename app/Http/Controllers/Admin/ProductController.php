@@ -139,10 +139,11 @@ class ProductController extends Controller
     public function uploadImage(Request $request)
     {
         $image = $request->file('image');
-        $tmpPath = str_split(strtolower(str_random(3)));
-        $checkDirectory = '/uploads/catalog/images/' . implode('/', $tmpPath);
+        $tmpPath = str_split(strtolower(str_random(1)));
 
-        $dbPath = $checkDirectory . "/" . $image->getClientOriginalName();
+        $url = url()->previous();
+
+        $checkDirectory = '/uploads/catalog/images/' . implode('/', $tmpPath);
 
         $image = Image::upload($image, $checkDirectory);
 

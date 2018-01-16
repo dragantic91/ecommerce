@@ -32,7 +32,7 @@
                                                         @else
                                                             <th>{{ __('front.account-billing-address') }}</th>
                                                         @endif
-                                                        <th><a href="#" style="color: cornflowerblue">{{ __('front.account-edit') }}</a></th>
+                                                        <th><a href="{{ route('my-account.address.destroy', $address->id) }}" style="color: cornflowerblue">Löschen</a></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>

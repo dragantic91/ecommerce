@@ -97,6 +97,9 @@ Route::middleware(['web', 'front.auth'])
 
     Route::resource('/my-account/address', 'AddressController', ['as' => 'my-account']);
 
+    Route::get('/my-account/order', ['as' => 'my-account.orders', 'uses' => 'MyAccountController@orders']);
+    Route::get('/my-account/order/{id}', ['as' => 'my-account.order.view', 'uses' => 'MyAccountController@orderView']);
+
     Route::get('/my-account/change-password', ['as' => 'my-account.change-password', 'uses' => 'MyAccountController@changePassword']);
     Route::post('/my-account/change-password', ['as' => 'my-account.change-password.post', 'uses' => 'MyAccountController@changePasswordPost']);
 });

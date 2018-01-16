@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\UploadUserImageRequest;
 use App\Http\Requests\UserProfileRequest;
+use App\Models\Database\Order;
 use Illuminate\Support\Facades\Auth;
 use App\Image\Facade as Image;
 use Illuminate\Support\Facades\File;
@@ -83,6 +84,32 @@ class MyAccountController extends Controller
 
         return redirect()->route('my-account.home')
             ->with('notificationText', 'User Profile Image Uploaded successfully!!');
+    }
+
+    /**
+     * Orders
+     */
+    public function orders()
+    {
+        $user = Auth::user();
+        $orders = Order::where('user_id', '=', $user->id)->get();
+
+        return view('front.user.my-account.orders')
+            ->with('orders', $orders)
+            ->with('user', $user);
+    }
+
+    /**
+     * Order View
+     */
+    public function orderView($id)
+    {
+        $user = Auth::user();
+        $order = Order::where('id', '=', $id)->first();
+
+        return view('front.user.my-account.orderView')
+            ->with('order', $order)
+            ->with('user', $user);
     }
 
     /**
