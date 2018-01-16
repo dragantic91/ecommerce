@@ -2,7 +2,7 @@
 
 return [
 
-    'cancel' => 'Stornieren',
+    'cancel' => 'Abbrechen',
     'please-select' => 'Bitte auswählen',
     'name' => 'Name',
     'email' => 'Email',
@@ -39,7 +39,7 @@ return [
     'select-delivery-type' => 'Select Delivery Type',
     'select-delivery-status' => 'Select Delivery Status',
     'newsletter' => 'Newsletter',
-    'slug' => 'Schnecke',
+    'slug' => 'Link',
     'description' => 'Beschreibung',
     'discount' => 'Rabatt',
     'discount-price' => 'Reduzierter Preis',
@@ -62,14 +62,14 @@ return [
     'order-number' => 'Bestellnummer',
     'order-shipping-option' => 'Versandoption',
     'order-status' => 'Bestellstatus',
-    'order-item-info' => 'Artikelinformationen bestellen',
-    'order-save' => 'Sparen',
+    'order-item-info' => 'Bestellinformationen',
+    'order-save' => 'Speichern',
     'order-title' => 'Titel',
     'order-qty' => 'Menge',
     'order-price' => 'Preis',
     'order-total' => 'Gesamt',
     'order-change-status' => 'Status ändern',
-    'order-address-info' => 'Bestelladresse info',
+    'order-address-info' => 'Kundendaten',
     'order-shipping-info' => 'Versandinformation',
 
     'admin-login-card-title' => 'Schoengebraucht Administrator Anmeldung',

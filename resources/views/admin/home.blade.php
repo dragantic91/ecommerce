@@ -168,10 +168,20 @@
         $('#daterange').daterangepicker({
             "autoApply": true,
             "startDate": d1,
-            "endDate": d2
+            "endDate": d2,
+            locale: {
+                applyLabel: 'Abfragen',
+                fromLabel: 'Von',
+                toLabel: 'Bis',
+                customRangeLabel: 'Benutzer definiert',
+                daysOfWeek: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                firstDay: 1
+            }
         }, function(start, end, label) {
             window.location.href = "/admin?start=" + start.format("MM/DD/YYYY") + "&end=" + end.format("MM/DD/YYYY");
         });
+
 
 
         function showhide(id){

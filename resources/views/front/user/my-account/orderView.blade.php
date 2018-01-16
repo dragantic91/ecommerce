@@ -21,7 +21,7 @@
                                 <label class="h5">Bestellnummer: {{ $order->id }}</label><br>
                                 <label class="h5">Versandoption: {{ $order->payment_option }}</label><br>
                                 <label class="h5">Bestellnummer: {{ $order->orderStatusTitle  }}</label><br>
-                                <h3 class="fet" style="padding-top: 20px">Artikelinformationen bestellen</h3>
+                                <h3 class="fet" style="padding-top: 20px">Bestellinformationen</h3>
                                 <div class="table-responsive">
                                     <table class="table">
 
@@ -49,7 +49,7 @@
                                 </div>
 
 
-                                <h3 class="fet">Bestelladresse info</h3>
+                                <h3 class="fet">Kundendaten</h3>
                                 <div class="table-responsive row">
                                     @if (!is_null($order->shipping_address_id))
                                         <div class="col-sm-6">
