@@ -11,14 +11,15 @@
 |
 */
 
+Route::redirect("/louisb", "/login", 301);
 
-Route::middleware(['web'])
+Route::middleware(['web', 'front.auth']) // Remove 'front.auth' middleware in production!!!
 ->namespace('\Front')
 ->group(function () {
 
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-        // START SCHOENGEBRAUCHT CATEGORY FRONT ROUTES /
+    // START SCHOENGEBRAUCHT CATEGORY FRONT ROUTES /
     Route::get('get_price_ranges', 'CategoryViewController@getPriceRanges');
     
     Route::get('/category',  ['as' => 'all.category.view',

@@ -8,7 +8,7 @@
 
 namespace App\Image;
 
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 
 class Service extends ImageManager
@@ -22,19 +22,15 @@ class Service extends ImageManager
     /**
      * Upload Image and resize it
      */
-    public function upload($image, $path = null, $keepAspectRatio = true)
+    public function upload($image, $directory, $keepAspectRatio = true)
     {
+        $path = 'uploads/'.$directory;
         $this->image = parent::make($image);
-        $this->directory(public_path($path));
-
         $name = $image->getClientOriginalName();
 
         $fullPath = public_path($path) . "/" . $name;
 
-
-        if(!File::exists(public_path($path))) {
-            File::makeDirectory(public_path($path), 0755, true, true);
-        }
+        $this->directory($directory);
 
         $this->image->save($fullPath);
 
@@ -48,7 +44,7 @@ class Service extends ImageManager
             $image->fit($width, $height);
 
             $sizePath = $image->dirname . "/" . $sizeName .  "-" .$image->basename;
-            $image->save( $sizePath);
+            $image->save($sizePath);
         }
 
         $localImage = new LocalFile($path . "/" . $name);
@@ -59,10 +55,10 @@ class Service extends ImageManager
     /**
      * Create Directories if not exists
      */
-    public function directory($path)
+    public function directory($directory)
     {
-        if (!File::exists($path)) {
-            File::makeDirectory($path, '0777', true, true);
+        if(!Storage::disk('uploads')->exists($directory)) {
+            Storage::disk('uploads')->makeDirectory($directory);
         }
         return $this;
     }
