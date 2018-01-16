@@ -12,7 +12,7 @@
 */
 
 
-Route::middleware(['web'])
+Route::middleware(['web', 'front.auth']) // Remove 'front.auth' middleware in production!!!
 ->namespace('\Front')
 ->group(function () {
 
