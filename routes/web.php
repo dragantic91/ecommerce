@@ -34,7 +34,6 @@ Route::post('/luisb', function() {
 });
 
 Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
-<<<<<<< HEAD
 ->group(function () {
 
     Route::middleware(['web'])
@@ -170,8 +169,6 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::resource('newsletter', 'NewsletterController', ['as' => 'admin']);
 
         });
-=======
-    ->group(function () {
 
 Route::middleware(['web'])
     ->namespace('\Front')
@@ -306,5 +303,4 @@ Route::middleware(['web', 'admin.auth'])
         Route::resource('newsletter', 'NewsletterController', ['as' => 'admin']);
 
     });
->>>>>>> da73b654e10010638becdc71f90e7e560a46f410
 });
