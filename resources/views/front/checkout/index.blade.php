@@ -301,9 +301,10 @@
 
                             <div class="buttons clearfix">
                                 <div class="float-right">
+                                    <input type="checkbox" name="billing_terms_and_conditions" id="agree" />
                                     {{ __('front.i-have-read-and-agree-to-the') }}
                                     <a href="{{ $termConditionPageUrl }}" target="_blank" class="agree"><b>{{ __('front.terms-conditions') }}</b></a>
-                                    <input type="checkbox" name="billing_terms_and_conditions" id="agree" />
+
                                     &nbsp;
                                 </div>
                             </div>

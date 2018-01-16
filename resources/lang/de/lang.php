@@ -12,7 +12,7 @@ return [
     'edit' => 'Bearbeiten',
     'edit-user' => 'Benutzer bearbeiten',
     'delete' => 'Löschen',
-    'destroy' => 'Zerstören',
+    'destroy' => 'Löschen',
     'view' => 'Ansicht',
     'catalog' => 'Katalog',
     'product' => 'Produkt',
@@ -60,7 +60,7 @@ return [
     'order-view' => 'Bestellansicht',
     'order-basic-info' => 'Grundinformationen bestellen',
     'order-number' => 'Bestellnummer',
-    'order-shipping-option' => 'Versandoption',
+    'order-shipping-option' => 'Geschlossen / Offen',
     'order-status' => 'Bestellstatus',
     'order-item-info' => 'Bestellinformationen',
     'order-save' => 'Speichern',
@@ -78,7 +78,7 @@ return [
     'admin-password-label' => 'Passwort',
     'admin-email-label' => 'E-Mail-Addresse',
     'admin-create-admin-user-button-title' => 'Erstellen Sie Benutzer',
-    'created-at' => 'Hergestellt In',
+    'created-at' => 'Erstellt am',
     'last-login' => 'Letzte Anmeldung',
 
 
@@ -89,9 +89,9 @@ return [
 
     'category.index.title' => 'Kategorieliste',
     'category.index.create' => 'Kategorie erstellen',
-    'category-index-edit' => 'Kategorie bearbeiten',
+    'category-index-edit' => 'Änderung speichern',
     'category-name' => 'Kategoriename',
-    'category-parent-category' => 'Eltern-Kategorie',
+    'category-parent-category' => 'Hauptkategorie',
 
     "product.index.title" => "Produktliste",
     "product.create.text" => "Produkt erstellen",
@@ -101,7 +101,7 @@ return [
     'address.configuration.title' => "Adresse Konfigurationsliste",
 
 
-    'shipping-option' => 'Versandoption',
+    'shipping-option' => 'Geschlossen / Offen',
     'payment-option' => 'Bezahlmöglichkeit',
 
     'billing' => 'something',

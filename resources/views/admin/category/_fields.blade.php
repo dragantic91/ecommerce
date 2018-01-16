@@ -1,6 +1,6 @@
 
 @include('admin.forms.text',['name' => 'name' ,'label' => __('lang.category-name')])
-@include('admin.forms.text',['name' => 'slug' ,'label' => 'Category Slug'])
+@include('admin.forms.text',['name' => 'slug' ,'label' => 'Kategorie-Link'])
 @include('admin.forms.select',['name' => 'parent_id' ,'label' => __('lang.category-parent-category'), 'options' => $categoryOptions])
 
 

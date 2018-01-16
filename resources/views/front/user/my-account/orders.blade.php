@@ -26,7 +26,7 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Datum</th>
-                                                <th>Versandoption</th>
+                                                <th>Geschlossen / Offen</th>
                                                 <th>Bestellstatus</th>
                                                 <th>Ansicht</th>
                                             </tr>

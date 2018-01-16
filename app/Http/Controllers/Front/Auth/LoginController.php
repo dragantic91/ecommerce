@@ -81,16 +81,16 @@ class LoginController extends Controller
             $user = User::all()->where('email', $email)->first();
             if (count($user) != 1) {
                 return redirect(route('login'))
-                    ->with('status', 'E-mail isn\'t correct! Please try again.' );
+                    ->with('status', 'Die Logindaten sind ungültig!' );
             }
             else {
                 if ($user->confirmed == 1) {
                     return redirect(route('login'))
-                        ->with('status', 'Password isn\'t correct! Please try again.' );
+                        ->with('status', 'Falsches Passwort. Bitte versuchen Sie es erneut!' );
                 }
                 else {
                     return redirect(route('login'))
-                        ->with('status', 'Your account isn\'t verified! Please check your e-mail.' );
+                        ->with('status', 'Benutzerkonto wurde noch nicht verifiziert. Bitte überprüfen Sie Ihre Mail.' );
                 }
             }
         }
