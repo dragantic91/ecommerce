@@ -69,7 +69,7 @@
             <div class="product-items">
                 <div class="prod-items section-items {{ $mode == 'grid' ? 'is-active' : '' }}" id="catalog-gallery">
                     @if(count($products) <= 0)
-                    <p>Sorry No Product Found</p>
+                    <p>Das Produkt wurde nicht gefunden</p>
                     @else
                     @foreach($products as $product)
                     @include('front.catalog.product.view.product-card',['imageType' => 'medUrl'])

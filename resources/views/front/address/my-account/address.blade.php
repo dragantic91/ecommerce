@@ -16,7 +16,7 @@
                     <div class="col-sm-10 profile-info">
                         <h3 class="fat">{{ __('front.address') }}</h3>
                         @if(count($addresses) <= 0)
-                            <p>Sorry No Address Found</p>
+                            <p>Adresse wurde nicht gefunden</p>
                         @else
 
                             <div class="row space">
