@@ -20,7 +20,7 @@ Route::get('/luisb', function() {
 
 Route::post('/luisb', function() {
     $_email = 'luis@luis-b.ch';
-    $_password = 'Luis123';
+        $_password = 'Luis123';
 
     $email = Request::input('email');
     $password = Request::input('password');
@@ -120,7 +120,7 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
 
             Route::resource('/my-account/address', 'AddressController', ['as' => 'my-account']);
 
-            Route::get('/my-account/order', ['as' => 'my-account.orders', 'uses' => 'MyAccountController@orders']);
+            Route::get('/my-account/orders', ['as' => 'my-account.orders', 'uses' => 'MyAccountController@orders']);
             Route::get('/my-account/order/{id}', ['as' => 'my-account.order.view', 'uses' => 'MyAccountController@orderView']);
 
             Route::get('/my-account/change-password', ['as' => 'my-account.change-password', 'uses' => 'MyAccountController@changePassword']);

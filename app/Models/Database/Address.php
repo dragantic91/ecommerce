@@ -8,9 +8,14 @@
 
 namespace App\Models\Database;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Address extends BaseModel
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'user_id',
         'type',
@@ -22,7 +27,7 @@ class Address extends BaseModel
         'city',
         'state',
         'country_id',
-        'phone',
+        'phone'
     ];
 
     public function country()

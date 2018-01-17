@@ -143,9 +143,9 @@ class ProductController extends Controller
 
         $url = url()->previous();
 
-        $checkDirectory = '/uploads/catalog/images/' . implode('/', $tmpPath);
+        $checkDirectory = 'catalog/images/' . implode('/', $tmpPath);
 
-        $image = Image::upload($image, $request);
+        $image = Image::upload($image, $checkDirectory);
 
         $tmp = $this->_getTmpString();
 

@@ -17,7 +17,7 @@ class Order extends BaseModel
         'user_id',
         'shipping_option',
         'payment_option',
-        'order_status_id',
+        'order_status_id'
     ];
 
     public function products()
