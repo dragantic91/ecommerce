@@ -70,11 +70,11 @@ class MyAccountController extends Controller
             $user->image_path->destroy();
         }
 
-        $relativePath = 'uploads/users/' . $user->id;
+        $relativePath = '/users/' . $user->id;
         $path = $relativePath;
 
 
-        $dbPath = $relativePath . '/' . $image->getClientOriginalName();
+        $dbPath = 'uploads' . $relativePath . '/' . $image->getClientOriginalName();
 
         $this->directory(public_path($relativePath));
 
@@ -83,7 +83,7 @@ class MyAccountController extends Controller
         $user->update(['image_path' => $dbPath]);
 
         return redirect()->route('my-account.home')
-            ->with('notificationText', 'User Profile Image Uploaded successfully!!');
+            ->with('notificationText', 'Benutzerprofil Image wurde erfolgreich hochgeladen!');
     }
 
     /**

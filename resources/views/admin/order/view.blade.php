@@ -75,7 +75,12 @@
                                 <th>{{ __('lang.order-total') }}</th>
                             </tr>
                             @if ($order->payment_option == 'Lieferung')
-                                {{ $pom = 0 }}
+                                @php
+                                    $pom = 0;
+                                    foreach ($order->products as $product) {
+                                        $pom += $product->delivery_price;
+                                    }
+                                @endphp
                             @endif
                             @foreach($order->products as $product)
                                 <tr>
@@ -95,8 +100,8 @@
                             <table class="table table-bordered">
                                 <tbody>
                                 <tr>
-                                    <th>{{ __('lang.order-total')}}</th>
-                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                    <th>{{ __('lang.delivery-price') }}</th>
+                                    <td>{{ number_format($pom, 2) }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('lang.order-total')}}</th>
