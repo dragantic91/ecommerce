@@ -34,7 +34,7 @@ class OrderController extends Controller
 			], ['billing_agree' => __('validation.accepted')]);
 		} else {
 			$this->validate($request, [
-				'shipping_terms_and_conditions' => 'required',
+				'billing_terms_and_conditions' => 'required',
 				'shipping_first_name' => 'required_with:use_different_shipping_address',
 				'shipping_last_name' => 'required_with:use_different_shipping_address',
 				'shipping_address' => 'required_with:use_different_shipping_address',

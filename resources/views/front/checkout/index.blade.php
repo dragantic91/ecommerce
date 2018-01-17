@@ -304,7 +304,6 @@
                                     <input type="checkbox" name="billing_terms_and_conditions" id="agree" />
                                     {{ __('front.i-have-read-and-agree-to-the') }}
                                     <a href="{{ $termConditionPageUrl }}" target="_blank" class="agree"><b>{{ __('front.terms-conditions') }}</b></a>
-
                                     &nbsp;
                                 </div>
                             </div>
@@ -429,7 +428,7 @@
             // fire ajax post request
             $.post(url, data)
             .done(function (data) {
-                // window.location.href = getUrl();
+                window.location.href = getUrl();
             })
             .fail(function(data, textStatus) {
                 var errors = data.responseJSON.errors;
