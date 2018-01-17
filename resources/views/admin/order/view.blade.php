@@ -68,26 +68,64 @@
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
-                                <th>ID</th>
+                                <th>{{ __('lang.product-number') }}</th>
                                 <th>{{ __('lang.order-title') }}</th>
                                 <th>{{ __('lang.order-qty') }}</th>
                                 <th>{{ __('lang.order-price') }}</th>
                                 <th>{{ __('lang.order-total') }}</th>
                             </tr>
+                            @if ($order->payment_option == 'Lieferung')
+                                {{ $pom = 0 }}
+                            @endif
                             @foreach($order->products as $product)
                                 <tr>
-
-                                    <td> {{ $product->id }}</td>
+                                    <td> {{ $product->product_no }}</td>
                                     <td> {{ $product->name }}</td>
                                     <td> {{ $product->getRelationValue('pivot')->qty }} </td>
-                                    <td> {{ $product->getRelationValue('pivot')->price }} </td>
-                                    <td> {{ $total = $product->getRelationValue('pivot')->price * $product->getRelationValue('pivot')->qty }} </td>
+                                    <td> {{ number_format($product->getRelationValue('pivot')->price, 2) }} </td>
+                                    <td> {{ number_format($total = $product->getRelationValue('pivot')->price * $product->getRelationValue('pivot')->qty, 2) }} </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
 
+                    @if ($order->payment_option == 'Lieferung')
+                        <div class="card-footer text-right">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>{{ __('lang.order-total')}}</th>
+                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ __('lang.order-total')}}</th>
+                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ __('lang.order-total')}}</th>
+                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
+                    @if ($order->payment_option == 'Abholen')
+                        <div class="card-footer text-right">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>{{ __('lang.order-total')}}</th>
+                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ __('lang.order-total')}}</th>
+                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-default card">
                     <h3 class="card-header">{{ __('lang.order-address-info') }}</h3>
@@ -95,7 +133,7 @@
                     <div class="card-body">
                         <div class="row">
 
-                            @if (!is_null($order->shipping_address_id))
+                            @if (!is_null($order->shipping_address))
 
                                 <div class="col-md-6">
                                     <h6>{{ __('lang.order-shipping-info') }}</h6>
@@ -113,7 +151,7 @@
                                 </div>
                             @endif
 
-                            @if (!is_null($order->billing_address_id))
+                            @if (!is_null($order->billing_address))
                                 <div class="col-md-6">
                                     <h6>{{ __('lang.order-shipping-info') }}</h6>
 
@@ -139,3 +177,11 @@
     </div>
 @endsection
 
+@push('styles')
+    <style>
+        #total-price {
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+@endpush

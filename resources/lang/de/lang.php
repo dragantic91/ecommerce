@@ -66,7 +66,7 @@ return [
     'order-save' => 'Speichern',
     'order-title' => 'Titel',
     'order-qty' => 'Menge',
-    'order-price' => 'Preis',
+    'order-price' => 'Preis pro Stück',
     'order-total' => 'Gesamt',
     'order-change-status' => 'Status ändern',
     'order-address-info' => 'Kundendaten',

@@ -21,7 +21,7 @@ class BaseModel extends Model
             //    Cache::put($cacheKey, $row, $minute = 100);
             return $row;
         } catch (ModelNotFoundException $e) {
-            throw with(new TenantModelNotFoundException())->setModel(get_called_class());
+
         }
     }
 

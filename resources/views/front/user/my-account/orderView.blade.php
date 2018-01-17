@@ -51,7 +51,7 @@
 
                                 <h3 class="fet">Kundendaten</h3>
                                 <div class="table-responsive row">
-                                    @if (!is_null($order->shipping_address_id))
+                                    @if (!is_null($order->shipping_address))
                                         <div class="col-sm-6">
                                             <table class="table">
                                                 <thead>
@@ -79,7 +79,7 @@
                                             </table>
                                         </div>
                                     @endif
-                                    @if (!is_null($order->billing_address_id))
+                                    @if (!is_null($order->billing_address))
                                         <div class="col-sm-6">
                                             <table class="table">
                                                 <thead>
@@ -98,7 +98,7 @@
                                                     <td>{{ $order->billing_address->address2 }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{ $order->billing_address  ->area }}</td>
+                                                    <td>{{ $order->billing_address->area }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{{ $order->billing_address->phone }}</td>

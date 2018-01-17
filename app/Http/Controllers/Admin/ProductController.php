@@ -139,7 +139,7 @@ class ProductController extends Controller
     public function uploadImage(Request $request)
     {
         $image = $request->file('image');
-        $tmpPath = str_split(strtolower(str_random(1)));
+        $tmpPath = str_split(strtolower(str_random(3)));
 
         $url = url()->previous();
 
