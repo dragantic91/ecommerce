@@ -150,7 +150,7 @@ class OrderController extends Controller
 				]);
 
 				Session::forget('cart');
-				Session::put('order_made', __('front.order_successfully_made'));
+				Session::flash('order_made', __('front.order_successfully_made'));
 
 			} catch (\Exception $e) {
 				return response()->json([
