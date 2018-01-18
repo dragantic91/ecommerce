@@ -8,12 +8,16 @@
 
 namespace App\Models\Database;
 
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Image\LocalFile;
 use Illuminate\Support\Str;
 
 class Product extends BaseModel
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $fillable =['type', 'name', 'slug', 'product_no', 'description', 'status', 'in_stock', 'track_stock', 'qty', 'is_taxable', 'page_title', 'page_description', 'price', 'discount', 'discount_price', 'delivery', 'delivery_price', 'new_product', 'hit_product'];
 
     public static function getCollection()

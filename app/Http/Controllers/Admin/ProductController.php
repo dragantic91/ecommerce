@@ -156,7 +156,7 @@ class ProductController extends Controller
 
     /**
      * Delete image file
-     */
+     */ 
     public function deleteImage(Request $request)
     {
         $path = $request->get('path');
