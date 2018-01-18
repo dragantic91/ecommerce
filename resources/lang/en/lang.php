@@ -34,6 +34,7 @@ return [
     'select-delivery-type' => 'Select Delivery Type',
     'select-delivery-status' => 'Select Delivery Status',
     'newsletter' => 'Newsletter',
+    'tax-amount' => 'Tax',
 
     'order-view' => 'Order View',
     'order-basic-info' => 'Order Basic Info',

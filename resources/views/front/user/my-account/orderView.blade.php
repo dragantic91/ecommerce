@@ -78,8 +78,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                    @endif
-                                    @if (!is_null($order->billing_address))
+                                    @else
                                         <div class="col-sm-6">
                                             <table class="table">
                                                 <thead>

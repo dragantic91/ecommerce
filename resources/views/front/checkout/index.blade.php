@@ -118,9 +118,9 @@
                                             <br/>
                                             {{ $address->address1 }}<br/>
                                             {{ $address->address2 }}<br/>
-                                            {{ $address->area }}<br/>
+                                            {{ $address->postcode }}<br/>
                                             {{ $address->city }}<br/>
-                                            {{ $address->state }} {{ $address->country->name }}<br/>
+                                            {{ $address->state }}<br/>
                                             {{ $address->phone }}<br/>
                                         </p>
                                         <input type="hidden" name="billing[id]" value="{{ $address->id }}"/>
@@ -272,11 +272,13 @@
                                 <td colspan="4" class="text-right  hidden-xs"><strong>{{ __('front.shipping-option') }}:</strong></td>
                                 <td class="text-right shipping-cost" data-shipping-cost="{{ $shipping }}">CHF {{ number_format($shipping, 2) }}</td>
                             </tr>
-{{--                                 <tr>
+                            {{--
+                            <tr>
                                 <td colspan="4" class="text-right  hidden-xs"><strong>{{ __('front.tax-amount') }}:</strong></td>
                                 <td class="text-right tax-amount" data-tax-amount="{{ $totalTax }}">
                                 CHF {{ number_format($totalTax,2) }}</td>
-                            </tr> --}}
+                            </tr>
+                            --}}
                             <tr>
                                 <td colspan="4" class="text-right hidden-xs"><strong>{{ __('front.total') }}:</strong></td>
                                 <td class="text-right total" data-total="{{ $total }}">
@@ -476,12 +478,6 @@
         // toggle show shipping address
         $('input#use_different_shipping_address').on('click', function () {
             $('#different-shipping-form').toggle();
-            var agree = $('#agree');
-            if (agree.attr('name') == 'billing_terms_and_conditions') {
-                agree.attr('name', 'shipping_terms_and_conditions');
-            } else {
-                agree.attr('name', 'billing_terms_and_conditions');
-            }
         });
     });
 </script>

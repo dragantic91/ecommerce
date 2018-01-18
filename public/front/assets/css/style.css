@@ -6818,7 +6818,7 @@ Login
 }
 
 .vertical-menu a {
-	height: 40px;
+	min-height: 40px;
 	/*background-color: #eee;*/
 	color: #373d54 !important;
 	display: block;

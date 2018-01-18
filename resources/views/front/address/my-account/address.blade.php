@@ -57,12 +57,8 @@
                                                         <td>{{ $address->city }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="font-weight: 700">{{ __('front.account-state') }}</td>
-                                                        <td>{{ $address->state }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="font-weight: 700">{{ __('front.account-country') }}</td>
-                                                        <td>{{ $address->country->name }}</td>
+                                                        <td style="font-weight: 700">{{ __('front.account-zip') }}</td>
+                                                        <td>{{ $address->postcode }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td style="font-weight: 700">{{ __('front.phone') }}</td>

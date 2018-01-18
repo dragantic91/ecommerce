@@ -9,6 +9,8 @@ use App\Models\Database\Order;
 use App\Models\Database\Address;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use App\Jobs\SendVerificationEmail;
 use Stripe\{Stripe, Charge, Customer};
 
 class OrderController extends Controller
@@ -48,12 +50,17 @@ class OrderController extends Controller
 		DB::transaction(function () use ($cartItems) {
 			if (!auth()->check()) {
 				$user = new User;
+                $user->title = "Her";
 				$user->first_name = request('billing_first_name');
 				$user->last_name = request('billing_last_name');
 				$user->phone = request('billing_phone');
 				$user->email = request('email');
 				$user->password = bcrypt(request('password'));
+				$user->token = base64_encode(request('email'));
 				$user->save();
+
+                event(new Registered($user));
+                dispatch(new SendVerificationEmail($user));
 
 				$address = new Address;
 				$address->type = 'BILLING';

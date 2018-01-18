@@ -104,8 +104,8 @@
                                     <td>{{ number_format($pom, 2) }}</td>
                                 </tr>
                                 <tr>
-                                    <th>{{ __('lang.order-total')}}</th>
-                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                    <th>{{ __('lang.tax-amount')}}</th>
+                                    <td>{{ number_format(($order->total_amount)/107.7*7.7, 2) }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('lang.order-total')}}</th>
@@ -120,8 +120,8 @@
                             <table class="table table-bordered">
                                 <tbody>
                                 <tr>
-                                    <th>{{ __('lang.order-total')}}</th>
-                                    <td>{{ number_format($order->total_amount, 2) }}</td>
+                                    <th>{{ __('lang.tax-amount')}}</th>
+                                    <td>{{ number_format(($order->total_amount)/107.7*7.7, 2) }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('lang.order-total')}}</th>
@@ -148,15 +148,13 @@
                                         <br/>
                                         {{ $order->shipping_address->address1 }}<br/>
                                         {{ $order->shipping_address->address2 }}<br/>
-                                        {{ $order->shipping_address->area }}<br/>
+                                        {{ $order->shipping_address->postcode }}<br/>
                                         {{ $order->shipping_address->city }}<br/>
                                         <br/>
                                         {{ $order->shipping_address->phone }}<br/>
                                     </p>
                                 </div>
-                            @endif
-
-                            @if (!is_null($order->billing_address))
+                            @else
                                 <div class="col-md-6">
                                     <h6>{{ __('lang.order-shipping-info') }}</h6>
 
@@ -165,7 +163,7 @@
                                         <br/>
                                         {{ $order->billing_address->address1 }}<br/>
                                         {{ $order->billing_address->address2 }}<br/>
-                                        {{ $order->billing_address->area }}<br/>
+                                        {{ $order->billing_address->postcode }}<br/>
                                         {{ $order->billing_address->city }}<br/>
                                         <br/>
                                         {{ $order->billing_address->phone }}<br/>

@@ -56,6 +56,7 @@ return [
     'month' => 'Monat',
     'year' => 'Jahr',
     'custom' => 'Benutzerdefiniert',
+    'tax-amount' => 'MwSt',
 
     'order-view' => 'Bestellansicht',
     'order-basic-info' => 'Grundinformationen bestellen',
