@@ -128,7 +128,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
+        $product = Product::find($id);
+        $product->delete();
+
         return redirect()->route('admin.product.index');
     }
 
@@ -156,7 +158,7 @@ class ProductController extends Controller
 
     /**
      * Delete image file
-     */ 
+     */
     public function deleteImage(Request $request)
     {
         $path = $request->get('path');
