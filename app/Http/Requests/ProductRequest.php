@@ -30,11 +30,6 @@ class ProductRequest extends FormRequest
         $rule['price'] = "required";
         $rule['description'] = "required";
         $rule['status'] = "required";
-        $rule['new_product'] = "required";
-
-        $rule['in_stock'] = "required";
-        $rule['hit_product'] = "required";
-        $rule['delivery'] = "required";
 
         $rule['delivery_price'] = "required_if:delivery,1";
         $rule['discount'] = "required";
