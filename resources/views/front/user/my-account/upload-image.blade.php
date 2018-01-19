@@ -19,10 +19,10 @@
                                 <form action="{{ route('my-account.upload-image.post') }}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <label>{{ __('front.account-set-profile-picture') }}</label><br><br>
-                                    <button class="input-file" style="padding: 0; background: #e15024">
+                                    <div class="input-file" style="padding: 0; text background: #e15024">
                                         <input type="file" name="profile_image"  id="profile_image" />
-                                        <label for="file-input">{{ __('front.account-upload') }}</label>
-                                    </button>
+                                        <label style="text-transform: uppercase; margin: 10px 20px 10px 17px;" for="file-input">{{ __('front.account-upload') }}</label>
+                                    </div>
                                     <div class="auth-submit">
                                         <button class="btn btn-primary" type="submit">{{ __('front.account-set-profile-picture') }}</button>
                                     </div>
