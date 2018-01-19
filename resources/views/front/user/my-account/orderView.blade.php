@@ -37,11 +37,11 @@
                                         <tbody>
                                             @foreach($order->products as $product)
                                                 <tr>
-                                                    <td>{{ $product->id }}</td>
+                                                    <td>{{ $product->product_no }}</td>
                                                     <td>{{ $product->name }}</td>
-                                                    <td>{{ $product->qty }}</td>
-                                                    <td>CHF {{ number_format($product->price, 2) }}</td>
-                                                    <td>CHF {{ number_format($product->price*$product->qty, 2) }}</td>
+                                                    <td>{{ $product->getRelationValue('pivot')->qty }}</td>
+                                                    <td>CHF {{ number_format($product->getRelationValue('pivot')->price, 2) }}</td>
+                                                    <td>CHF {{ number_format($total = $product->getRelationValue('pivot')->price * $product->getRelationValue('pivot')->qty, 2) }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
