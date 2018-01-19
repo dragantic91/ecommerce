@@ -51,7 +51,7 @@
 
                                 <h3 class="fet">Kundendaten</h3>
                                 <div class="table-responsive row">
-                                    @if (!is_null($order->shipping_address))
+                                    @if (!is_null($order->shipping_address_id))
                                         <div class="col-sm-6">
                                             <table class="table">
                                                 <thead>
@@ -70,7 +70,10 @@
                                                     <td>{{ $order->shipping_address->address2 }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{ $order->shipping_address->area }}</td>
+                                                    <td>{{ $order->shipping_address->postcode }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{ $order->shipping_address->city }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{{ $order->shipping_address->phone }}</td>
@@ -97,7 +100,10 @@
                                                     <td>{{ $order->billing_address->address2 }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{ $order->billing_address->area }}</td>
+                                                    <td>{{ $order->billing_address->postcode }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{ $order->billing_address->city }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{{ $order->billing_address->phone }}</td>

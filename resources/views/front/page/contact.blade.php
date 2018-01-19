@@ -3,7 +3,7 @@
 @extends('front.layouts.app')
 
 @section('meta_title')
-    {{ $page->title }}
+    {{ $page->name }}
 @endsection
 
 @section('scripts')

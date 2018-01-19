@@ -77,7 +77,7 @@
                                     </td>
                                     <td class="col-sm-1" style="padding-top: 25px">
                                         @if($product['delivery'] == 0)
-                                            <div class="checkbox disabled" title="This product can not be delivered">
+                                            <div class="checkbox disabled" title="Dieses Produkt kann nicht geliefert werden">
                                                 <label>
                                                     <input id="toggle" name="delivery[]"  type="checkbox" disabled data-toggle="toggle" data-on="{{ __('front.yes') }}" data-off="{{ __('front.no') }}">
                                                 </label>
@@ -178,10 +178,12 @@
                 var singleProductTotal = parseFloat(price.text()) * qty;
                 priceAndQuantity.text(singleProductTotal.toFixed(2));
                 var sum = 0;
-                    priceAndQuantity.each(function() {
-                    sum += parseFloat($(this).text());
+
+                $('td.price-and-quantity').each(function() {
+                    sum += parseFloat($(this).find('span').text());
                 });
                 totalPrice.text(sum.toFixed(2));
+
 
                 var hiddenField = that.siblings('input[type="hidden"]')
                 var token = hiddenField.attr('data-token');
@@ -192,17 +194,11 @@
                     url: '{{ url('cart/update') }}',
                     data: data,
                     type: 'post',
-                    // beforeSend: function () {
-                    //     $('html').css('background-color', '#000').css('opacity', '0.9');
-                    // },
                     success: function (data) {
                         if (data.status) {
                             return true;
                         }
                     },
-                    // complete: function() {
-                    //     $('html').css('background-color', '#fff');
-                    // },
                 });
             });
 

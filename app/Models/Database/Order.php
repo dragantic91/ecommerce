@@ -22,7 +22,7 @@ class Order extends BaseModel
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)->withPivot('price', 'qty', 'tax_amount');
+        return $this->belongsToMany(Product::class)->withTrashed()->withPivot('price', 'qty', 'tax_amount');
     }
 
     public function user()
@@ -41,7 +41,7 @@ class Order extends BaseModel
 
     public function getShippingAddressAttribute()
     {
-        $shippingAddress = Address::findorfail($this->attributes['shipping_address_id']);
+        $shippingAddress = Address::withTrashed()->findorfail($this->attributes['shipping_address_id']);
 
         return $shippingAddress;
     }
@@ -53,7 +53,7 @@ class Order extends BaseModel
 
     public function getBillingAddressAttribute()
     {
-        $address = Address::findorfail($this->attributes['billing_address_id']);
+        $address = Address::withTrashed()->findorfail($this->attributes['billing_address_id']);
 
         return $address;
     }

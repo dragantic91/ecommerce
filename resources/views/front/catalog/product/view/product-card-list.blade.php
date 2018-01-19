@@ -118,7 +118,6 @@
     var range_slider = $('#range-slider');
     var initialPriceFrom = '{{ old('price_from') }}';
     var initialPriceTo = '{{ old('price_to') }}' != '' ? '{{ old('price_to') }}' : '{{ round($maxPrice) }}';
-    console.log('sadasas');
     range_slider.ionRangeSlider({
         type: "double",
         // grid: range_slider.data('grid'),

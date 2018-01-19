@@ -138,7 +138,7 @@
                     <div class="card-body">
                         <div class="row">
 
-                            @if (!is_null($order->shipping_address))
+                            @if (!is_null($order->shipping_address_id))
 
                                 <div class="col-md-6">
                                     <h6>{{ __('lang.order-shipping-info') }}</h6>
