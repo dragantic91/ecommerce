@@ -20,7 +20,7 @@
                             @include('admin.admin-user._fields',['editMethod' => false,'roles' => $roles])
 
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">{{ __('lang.admin-create-admin-user-button-title') }}</button>
+                                <button class="btn btn-primary" type="submit">Speichern</button>
                                 <a href="{{ route('admin.admin-user.index') }}" class="btn">{{ __('lang.cancel') }}</a>
                             </div>
 

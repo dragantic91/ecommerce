@@ -97,7 +97,7 @@ class AdminUserController extends AdminController
 
     private function _getRoleOptions()
     {
-        return [0 => 'Please Select'] + Role::all()->pluck('name', 'id')->toArray();
+        return [0 => 'Bitte auswählen'] + Role::all()->pluck('name', 'id')->toArray();
     }
 
 

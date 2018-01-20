@@ -42,7 +42,7 @@
                             <label for="rememberme">{{ __('front.account-remember-me') }}</label>
                         </p>
                         <p class="auth-lost_password">
-                            <a href="#">{{ __('front.account-lost-your-password') }}?</a>
+                            <a href="#">{{ __('front.account-lost-your-password') }}</a>
                         </p>
                     </form>
                 </div>

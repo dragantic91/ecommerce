@@ -27,4 +27,11 @@ class UploadUserImageRequest extends FormRequest
 
         return $validation;
     }
+
+    public function messages()
+    {
+        return [
+            'profile_image.required' => 'Bitte ein Bild hochladen',
+        ];
+    }
 }

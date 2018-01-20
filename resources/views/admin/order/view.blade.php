@@ -115,7 +115,7 @@
                             </table>
                         </div>
                     @endif
-                    @if ($order->payment_option == 'Abholen')
+                    @if ($order->payment_option == 'Abholung')
                         <div class="card-footer text-right">
                             <table class="table table-bordered">
                                 <tbody>

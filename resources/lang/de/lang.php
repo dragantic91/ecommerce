@@ -25,8 +25,8 @@ return [
     'admin-users' => 'Admin-Benutzer',
     'change-password' => 'Passwort ändern',
     'current-password' => 'Aktuelles Passwort',
-    'new-password' => 'Neues Kennwort',
-    'confirm-password' => 'Bestätige das Passwort',
+    'new-password' => 'Neues Passwort',
+    'confirm-password' => 'Passwort bestätigen',
     'first-name' => 'Vorname',
     'last-name' => 'Nachname',
     'product-number' => 'Artikel Nr.',
@@ -78,7 +78,7 @@ return [
     'admin-login-button-title' => 'Anmeldung',
     'admin-password-label' => 'Passwort',
     'admin-email-label' => 'E-Mail-Addresse',
-    'admin-create-admin-user-button-title' => 'Erstellen Sie Benutzer',
+    'admin-create-admin-user-button-title' => 'Benutzer hinzufügen',
     'created-at' => 'Erstellt am',
     'last-login' => 'Letzte Anmeldung',
 
@@ -96,7 +96,7 @@ return [
 
     "product.index.title" => "Produktliste",
     "product.create.text" => "Produkt erstellen",
-    'product-edit-product' => 'Produkt bearbeiten',
+    'product-edit-product' => 'Erstellen',
 
 
     'address.configuration.title' => "Adresse Konfigurationsliste",

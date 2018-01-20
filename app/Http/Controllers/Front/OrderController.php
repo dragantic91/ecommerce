@@ -132,7 +132,7 @@ class OrderController extends Controller
 				$orderForPickup->user_id = $user->id;
 				$orderForPickup->billing_address_id = $address->id;
 				$orderForPickup->shipping_address_id = isset($shippingAddress) ? $shippingAddress->id : null;
-				$orderForPickup->payment_option = 'Abholen';
+				$orderForPickup->payment_option = 'Abholung';
 				$orderForPickup->order_status_id = 1;
 				$orderForPickup->total_amount = Session::get('pickupTotal');
 				$orderForPickup->save();

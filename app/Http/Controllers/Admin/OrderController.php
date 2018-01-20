@@ -33,7 +33,7 @@ class OrderController extends AdminController
                 ->column('id', ['sortable' => true])
                 ->column('created_at', ['label' => __('lang.date')])
                 ->column('user_id', ['label' => __('lang.buyer-id')])
-                ->column('payment_option', ['label' => __('lang.shipping-option')])
+                ->column('payment_option', ['label' => "Bestellstatus"])
                 ->linkColumn('order_status', ['label' => __('lang.order-status')], function($model) {
                     return $model->orderStatus->name;
                 })

@@ -89,11 +89,11 @@
                 </li>
                 <li>
                     <a href="{{ route('login') }}">
-                        Registration / Login
+                        Registrierung / Login
                     </a>
                 </li>
             </ul>
-            <h1 class="main-ttl"><span>Registration / Login</span></h1>
+            <h1 class="main-ttl"><span>Registrierung / Login</span></h1>
             <div class="auth-wrap">
                 <div class="auth-col">
                     <h2>Login</h2>
@@ -128,7 +128,7 @@
                             <label for="rememberme">{{ __('front.account-remember-me') }}</label>
                         </p>
                         <p class="auth-lost_password">
-                            <a href="#">{{ __('front.account-lost-your-password') }}?</a>
+                            <a href="#">{{ __('front.account-lost-your-password') }}</a>
                         </p>
                     </form>
                 </div>

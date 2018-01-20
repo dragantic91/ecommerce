@@ -7,7 +7,7 @@
                 <select class="form-control" name="select-shipping" onchange="location=this.value;">
                     <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_type' => '']), false)) }}" @if (app('request')->input('delivery_type') == null || app('request')->input('delivery_type') == '') selected @endif>Wählen Sie den Zustelltyp aus</option>
                     <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_type' => 'Lieferung']), false)) }}" @if (app('request')->input('delivery_type') == 'delivery') selected @endif>Lieferung</option>
-                    <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_type' => 'Abholen']), false)) }}" @if (app('request')->input('delivery_type') == 'pickup') selected @endif>Abholung</option>
+                    <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_type' => 'Abholung']), false)) }}" @if (app('request')->input('delivery_type') == 'pickup') selected @endif>Abholung</option>
                 </select>
             </div>
             <div class="col-3">

@@ -50,7 +50,7 @@ class CartController extends Controller
         }
 
         Session::put('cart', $cart);
-        return redirect()->back()->with('notificationText', 'Artikel wurde erfolgreich zum Warenkorb hinzugefügt!');
+        return redirect()->back()->with('notificationText', 'Der Artikel wurde erfolgreich in den Warenkorb hinzugefügt!');
     }
 
     public function view()
