@@ -124,8 +124,8 @@ return [
         'billing_city' => 'billing stadt',
         'billing_phone' => 'billing phone',
         'email' => 'billing email',
-        'password' => 'billing passwort',
-        'password_confirmation' => 'billing passwort bestätigen',
+        'password' => 'Passwort',
+        'password_confirmation' => 'Passwort Bestätigen',
 
         'shipping_first_name' => 'shipping vorname',
         'shipping_last_name' => 'shipping nachname',

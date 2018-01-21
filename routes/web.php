@@ -104,6 +104,13 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::post('/register', ['as' => 'register.post', 'uses' => 'RegisterController@register']);
 
             Route::get('/verifyemail/{token}', 'RegisterController@verify');
+
+            Route::get('/forgot-password', 'ForgotPasswordController@forgotPassword');
+            Route::post('/forgot-password', 'ForgotPasswordController@postForgotPassword');
+
+            Route::get('/reset/{email}/{resetCode}', 'ForgotPasswordController@resetPassword');
+            Route::post('/reset/{email}/{resetCode}', 'ForgotPasswordController@postResetPassword');
+
         });
 
     Route::middleware(['web', 'front.auth'])
