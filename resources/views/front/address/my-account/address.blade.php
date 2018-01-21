@@ -16,7 +16,7 @@
                     <div class="col-sm-10 profile-info">
                         <h3 class="fat">{{ __('front.address') }}</h3>
                         @if(count($addresses) <= 0)
-                            <p>Adresse wurde nicht gefunden</p>
+                            <p>Keine Adresse vorhanden</p>
                         @else
 
                             <div class="row space">
@@ -72,6 +72,9 @@
                                 </div>
                             </div>
                         @endif
+                        <div class="row space">
+                            <a href="{{ route('my-account.address.new') }}" class="btn btn-primary">Adresse hinzufügen</a>
+                        </div>
                     </div>
                 </div>
             </div>
