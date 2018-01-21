@@ -25,10 +25,10 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Datum</th>
-                                                <th>Geschlossen / Offen</th>
-                                                <th>Bestellstatus</th>
-                                                <th>Ansicht</th>
+                                                <th>{{ __('lang.date') }}</th>
+                                                <th>{{ __('lang.order-shipping-option') }}</th>
+                                                <th>{{ __('lang.order-status') }}</th>
+                                                <th>{{ __('lang.view') }}</th>
                                             </tr>
                                             </thead>
                                             <tbody>

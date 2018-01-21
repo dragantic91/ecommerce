@@ -100,7 +100,7 @@
         <div class="col-lg-12 col-lg-offset-0 text-center">
             @if(session()->has('notificationText'))
                 <div class="alert alert-success alert-dismissible" role="alert">
-                    <strong>{{ __('front.success') }}!</strong> {{ session()->get('notificationText') }}
+                    {{ session()->get('notificationText') }}
                 </div>
             @endif
             @if(session()->has('notificationError'))
