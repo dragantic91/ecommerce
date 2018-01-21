@@ -38,7 +38,12 @@ class ContactMail extends Mailable
             foreach ($this->contactForm['image'] as $name){
                 $email->attach(storage_path().'\app\email\\'. $name);
             }
+            $email->subject('Wir Kaufen');
         }
+        else {
+            $email->subject('Kontakt');
+        }
+
         $email->with(['contactForm' => $this->contactForm,]);
 
         return $email;

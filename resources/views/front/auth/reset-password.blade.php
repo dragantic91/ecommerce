@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('meta_title', 'Login: Schoengebraucht')
+@section('meta_title', __('front.account-lost-your-password'))
 @section('meta_description', 'My Account Management System for Schoengebraucht E Commerce')
 
 @section('content')
