@@ -175,6 +175,7 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::get('buyer', ['as' => 'admin.buyer.index', 'uses' => 'BuyerController@index']);
             Route::resource('newsletter', 'NewsletterController', ['as' => 'admin']);
 
+            Route::get('pdfview',['as'=>'pdfview','uses'=>'NewsletterController@pdfView']);
         });
 
 Route::middleware(['web'])

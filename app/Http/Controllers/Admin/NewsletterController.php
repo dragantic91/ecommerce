@@ -10,6 +10,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataGrid\Facade as DataGrid;
 use App\Models\Database\Subscriber;
+use PDF;
+use Illuminate\Http\Request;
 
 class NewsletterController extends AdminController
 {
@@ -37,5 +39,18 @@ class NewsletterController extends AdminController
     {
         Subscriber::destroy($id);
         return redirect()->route('admin.newsletter.index');
+    }
+
+    public function pdfView(Request $request)
+    {
+        $subscribers = Subscriber::all();
+        view()->share('subscribers', $subscribers);
+
+        if ($request->has('download')) {
+            $pdf = PDF::loadView('admin.newsletter.pdfview');
+            return $pdf->download('pdfview.pdf');
+        }
+
+        return view('admin.newsletter.pdfview');
     }
 }

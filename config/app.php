@@ -183,6 +183,7 @@ return [
         App\Tabs\Provider::class,
         App\Shipping\Provider::class,
         App\Payment\Provider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
 
     ],
@@ -237,6 +238,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Tabs' => App\Tabs\Facade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
