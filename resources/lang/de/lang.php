@@ -60,7 +60,7 @@ return [
     'order-view' => 'Bestellansicht',
     'order-basic-info' => 'Grundinformationen bestellen',
     'order-number' => 'Bestellnummer',
-    'order-shipping-option' => 'Geschlossen / Offen',
+    'order-shipping-option' => 'Bestellstatus',
     'order-status' => 'Lieferart',
     'order-item-info' => 'Bestellinformationen',
     'order-save' => 'Speichern',

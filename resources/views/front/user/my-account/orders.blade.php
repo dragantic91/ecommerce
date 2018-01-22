@@ -26,8 +26,8 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>{{ __('lang.date') }}</th>
-                                                <th>{{ __('lang.order-shipping-option') }}</th>
                                                 <th>{{ __('lang.order-status') }}</th>
+                                                <th>{{ __('lang.order-shipping-option') }}</th>
                                                 <th>{{ __('lang.view') }}</th>
                                             </tr>
                                             </thead>
