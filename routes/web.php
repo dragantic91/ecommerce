@@ -125,6 +125,8 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::get('/my-account/upload-image', ['as' => 'my-account.upload-image', 'uses' => 'MyAccountController@uploadImage']);
             Route::post('/my-account/upload-image', ['as' => 'my-account.upload-image.post', 'uses' => 'MyAccountController@uploadImagePost']);
 
+            Route::get('/my-account/address/new', 'AddressController@create')->name('my-account.address.new');
+            Route::post('/my-account/address/new', 'AddressController@store');
             Route::resource('/my-account/address', 'AddressController', ['as' => 'my-account']);
 
             Route::get('/my-account/orders', ['as' => 'my-account.orders', 'uses' => 'MyAccountController@orders']);

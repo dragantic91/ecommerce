@@ -31,7 +31,7 @@ return [
     'my-account' => 'Mein Konto',
     'account-adresses' => 'Adressangaben',
     'account-billing-address' => 'Rechnungsadresse',
-    'account-shipping-address' => 'Lieferanschrift',
+    'account-shipping-address' => 'Versandadresse',
     'account-edit' => 'Bearbeiten',
     'account-address-1' => 'Strasse',
     'account-Address 2' => 'Adresszusatz',
