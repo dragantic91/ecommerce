@@ -67,7 +67,7 @@
                                             @endif
                                         </p>
                                         <p>
-                                            <label for="tel">{{ __('front.phone') }}<span class="required">*</span></label>
+                                            <label for="tel">{{ __('front.phone') }}</label>
                                             <input id="phone" type="text" class="form-control"
                                                    value="{{ $user->phone }}"
                                                    name="phone">
@@ -78,7 +78,7 @@
                                             @endif
                                         </p>
                                         <p>
-                                            <label for="company">{{ __('front.account-company-name') }}<span class="required">*</span></label>
+                                            <label for="company">{{ __('front.account-company-name') }}</label>
                                             <input id="company_name" type="text" class="form-control"
                                                    value="{{ $user->company_name }}"
                                                    name="company_name">
