@@ -175,15 +175,14 @@
                 var price = closestTd.siblings('td.price').find('span');
                 var priceAndQuantity = closestTd.siblings('td.price-and-quantity').find('span');
                 var totalPrice = price.closest('tr').siblings('tr.total-price').find('span');
-                var singleProductTotal = parseFloat(price.text()) * qty;
-                priceAndQuantity.text(singleProductTotal.toFixed(2));
+                var singleProductTotal = toFloat(price.text()) * qty;
+                priceAndQuantity.text(number_format(singleProductTotal, 2));
+
                 var sum = 0;
-
-                $('td.price-and-quantity').each(function() {
-                    sum += parseFloat($(this).find('span').text());
+                    priceAndQuantity.each(function() {
+                    sum += toFloat($(this).text());
                 });
-                totalPrice.text(sum.toFixed(2));
-
+                totalPrice.text(number_format(sum, 2));
 
                 var hiddenField = that.siblings('input[type="hidden"]')
                 var token = hiddenField.attr('data-token');
@@ -214,13 +213,14 @@
                 var price = closestTd.siblings('td.price').find('span');
                 var priceAndQuantity = closestTd.siblings('td.price-and-quantity').find('span');
                 var totalPrice = price.closest('tr').siblings('tr.total-price').find('span');
-                var singleProductTotal = parseFloat(price.text()) * qty;
-                priceAndQuantity.text(singleProductTotal.toFixed(2));
+                var singleProductTotal = toFloat(price.text()) * qty;
+                priceAndQuantity.text(number_format(singleProductTotal, 2));
+
                 var sum = 0;
                     priceAndQuantity.each(function() {
-                    sum += parseFloat($(this).text());
+                    sum += toFloat($(this).text());
                 });
-                totalPrice.text(sum.toFixed(2));
+                totalPrice.text(number_format(sum, 2));
 
                 var hiddenField = that.siblings('input[type="hidden"]')
                 var token = hiddenField.attr('data-token');

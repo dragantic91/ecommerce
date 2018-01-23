@@ -146,7 +146,7 @@
 <script src="{{ asset('front/assets/js/jQuery.Brazzers-Carousel.js') }}"></script>
 <script src="{{ asset('front/assets/js/plugins.js') }}"></script>
 <script src="{{ asset('front/assets/js/main.js') }}"></script>
-<script src="{{ asset('front/assets/js/functions.js') }}"></script>
+<script src="{{ asset('front/assets/js/functions.js?=ver' . str_random(10)) }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAYvx0GmLyN5hlf6Uv_e9pPvUT3YpozE"></script>
 
 @yield('scripts')
