@@ -173,10 +173,12 @@
 
                 var closestTd = that.closest('td');
                 var price = closestTd.siblings('td.price').find('span');
-                var priceAndQuantity = closestTd.siblings('td.price-and-quantity').find('span');
+                var closestPriceAndQuantity = closestTd.siblings('td.price-and-quantity').find('span');
                 var totalPrice = price.closest('tr').siblings('tr.total-price').find('span');
                 var singleProductTotal = toFloat(price.text()) * qty;
-                priceAndQuantity.text(number_format(singleProductTotal, 2));
+                closestPriceAndQuantity.text(number_format(singleProductTotal, 2));
+
+                var priceAndQuantity = $('td.price-and-quantity').find('span');
 
                 var sum = 0;
                     priceAndQuantity.each(function() {
@@ -211,10 +213,12 @@
 
                 var closestTd = that.closest('td');
                 var price = closestTd.siblings('td.price').find('span');
-                var priceAndQuantity = closestTd.siblings('td.price-and-quantity').find('span');
+                var closestPriceAndQuantity = closestTd.siblings('td.price-and-quantity').find('span');
                 var totalPrice = price.closest('tr').siblings('tr.total-price').find('span');
                 var singleProductTotal = toFloat(price.text()) * qty;
-                priceAndQuantity.text(number_format(singleProductTotal, 2));
+                closestPriceAndQuantity.text(number_format(singleProductTotal, 2));
+
+                var priceAndQuantity = $('td.price-and-quantity').find('span');
 
                 var sum = 0;
                     priceAndQuantity.each(function() {
