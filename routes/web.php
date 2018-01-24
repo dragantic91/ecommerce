@@ -178,6 +178,20 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::resource('newsletter', 'NewsletterController', ['as' => 'admin']);
 
             Route::get('pdfview',['as'=>'pdfview','uses'=>'NewsletterController@pdfView']);
+
+            Route::get('page/home', ['as' => 'admin.page.home', 'uses' => 'PageController@home']);
+            Route::get('page/home/create', ['as' => 'admin.home.create', 'uses' => 'PageController@homeCreate']);
+            Route::post('page/home/create', ['as' => 'admin.home.store', 'uses' => 'PageController@homeStore']);
+            Route::get('page/home/delete/{id}', ['as' => 'admin.home.destroy', 'uses' => 'PageController@homeDestroy']);
+
+            Route::get('page/uber-uns', ['as' => 'admin.page.uber-uns', 'uses' => 'PageController@uberUns']);
+            Route::get('page/uber-uns/create', ['as' => 'admin.uber-uns.create', 'uses' => 'PageController@bannerUberUnsCreate']);
+            Route::post('page/uber-uns/create', ['as' => 'admin.uber-uns.store', 'uses' => 'PageController@bannerUberUnsStore']);
+            Route::post('page/uber-uns/update/{id}', ['as' => 'admin.uber-uns.update.text', 'uses' => 'PageController@textUpdateUberUns']);
+            Route::get('page/uber-uns/delete/{id}', ['as' => 'admin.uber-uns.destroy', 'uses' => 'PageController@bannerUberUnsDestroy']);
+
+            Route::get('page/wir-kaufen', ['as' => 'admin.page.wir-kaufen', 'uses' => 'PageController@wirKaufen']);
+            Route::post('page/wirkaufen/update/{id}', ['as' => 'admin.wir-kaufen.update', 'uses' => 'PageController@updateWirKaufen']);
         });
 
 Route::middleware(['web'])

@@ -132,6 +132,36 @@ class Provider extends ServiceProvider
             ->route('admin.change-password.index');
         $systemMenu->subMenu('change-password', $changePasswordMenu);
 
+        /**
+         * Add Menu Pages
+         */
+        AdminMenuFacade::add('home')
+            ->label(__('lang.pages'))
+            ->route("#");
+        $homeMenu = AdminMenuFacade::get('home');
+
+        /**
+
+         * Add Submenu
+         */
+        $homeSubMenu = new AdminMenu();
+        $homeSubMenu->key('home')
+            ->label('Home')
+            ->route('admin.page.home');
+        $homeMenu->subMenu('home', $homeSubMenu);
+
+        $uberUnsMenu = new AdminMenu();
+        $uberUnsMenu->key('uber-uns')
+            ->label('Uber Uns')
+            ->route('admin.page.uber-uns');
+        $homeMenu->subMenu('uber-uns',  $uberUnsMenu);
+
+        $wirKaufenMenu = new AdminMenu();
+        $wirKaufenMenu->key('wir-kaufen')
+            ->label('Wir Kaufen')
+            ->route('admin.page.wir-kaufen');
+        $homeMenu->subMenu('wir-kaufen',  $wirKaufenMenu);
+
     }
 
     public function provides()

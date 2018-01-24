@@ -32,10 +32,7 @@
                         <!-- Contacts - start -->
                         <br>
                         <p class="text-justify">
-                            Sie haben Waren, die Sie gerne verkaufen möchten?
-                            Bei uns sind Sie immer herzlich Willkommen. Wir kaufen Waren jeglicher Art und sind stets interessiert an neuen Angeboten.
-                            Gerne können Sie durch unser Kontaktformular mit den nötigen Informationen und Bildern, die Ware zuschicken.
-                            Wir werden Ihr Angebot innert 72 Stunden prüfen und Sie darauf kontaktieren.
+                            {{ $description->body }}
                         </p>
 
                         <!-- Contact Form -->

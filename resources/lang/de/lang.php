@@ -56,6 +56,12 @@ return [
     'year' => 'Jahr',
     'custom' => 'Benutzerdefiniert',
     'tax-amount' => 'MwSt',
+    'pages' => 'Seiten',
+    'heading' => 'Überschrift',
+    'button' => 'Knopf',
+    'body' => 'Inhalt',
+    'banner-name' => 'Banner Titel',
+
 
     'order-view' => 'Bestellansicht',
     'order-basic-info' => 'Grundinformationen bestellen',
@@ -78,6 +84,8 @@ return [
     'admin-password-label' => 'Passwort',
     'admin-email-label' => 'E-Mail-Addresse',
     'admin-create-admin-user-button-title' => 'Benutzer hinzufügen',
+    'admin-create-new-banner' => 'Neuen Banner erstellen',
+    'admin-update-text' => 'Text aktualisieren',
     'created-at' => 'Erstellt am',
     'last-login' => 'Letzte Anmeldung',
 
@@ -112,6 +120,6 @@ return [
     'average-orders-value' => 'Durchschnittlicher Bestellwert',
     'of-orders' => '# von Bestellungen',
     'of-visits' => '# von Besuchen',
-    '' => '',
+    'update-success' => 'Erfolgreich aktualisiert',
 
 ];

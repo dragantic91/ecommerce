@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendContactEmail;
 use App\Models\Database\Page;
+use App\Models\Database\PageUberUns;
+use App\Models\Database\PageWirKaufen;
 use App\Models\Database\Subscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -30,16 +32,27 @@ class PageController extends Controller
 
     public function about()
     {
+        $text = PageUberUns::where('key', '=', 'text')->first();
+
+        $banners = PageUberUns::where('key', '=', 'image')->get();
+
         $page = Page::where('slug', '=', 'about-us')->first();
 
-        return view('front.page.about')->with('page', $page);
+        return view('front.page.about')
+            ->with([
+                'page' => $page,
+                'text' => $text,
+                'banners' => $banners
+            ]);
     }
 
     public function wirKaufen() {
 
+        $description = PageWirKaufen::all()->first();
+
         $page = Page::where('slug', '=', 'wir')->first();
 
-        return view('front.page.wirKaufen', compact('page'));
+        return view('front.page.wirKaufen', compact('page', 'description'));
     }
 
     public function sendWirEmail(Request $request)

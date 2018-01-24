@@ -35,24 +35,16 @@
                             <!-- Slider -->
                             <div class="flexslider post-slider" id="post-slider-car">
                                 <ul class="slides">
+                                    @foreach($banners as $banner)
                                     <li>
-                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="/front/assets/img/about/1.jpg"><img src="/front/assets/img/about/1.jpg" alt=""></a>
+                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="{{ $banner->value }}"><img src="{{ $banner->value }}" alt=""></a>
                                     </li>
-                                    <li>
-                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="/front/assets/img/about/1.jpg"><img src="/front/assets/img/about/1.jpg" alt=""></a>
-                                    </li>
-                                    <li>
-                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="/front/assets/img/about/1.jpg"><img src="/front/assets/img/about/1.jpg" alt=""></a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
 
                             <p class="text-justify">
-                                Schoengebraucht ist der Online Shop von Brock GmbH und vertreibt erfolgreich auch über Online ein umfangreiches Sortiment.
-                                Mit über 30 Jahren Erfahrung ist die Brock GmbH eines der ältesten Brockenhäuser von Zürich. Professionell und privat geführt ohne Trägerverein, Sponsoring und ohne eine Institution im Rücken.
-                                Das traditionelle Sortiment umfasst Kleinwaren jeglicher Art, Geschirr, Bücher, gebrauchte Möbel aller Epochen, Bilder, Kleider, Raritäten und interessante EInzelstücke.
-                                Dank Verwertungsaufträgen von Grossfirmen und gezielten Einkäufen finden Sie bei uns auch Neuwaren zu unschlagbaren Preisen. Weine, Textilien, Technik und vieles mehr.
-                                Die Brock GmbH ist seit 2012 Partner vom Verkaufs- und Auktionsportal spotter.ch
+                                {{ $text->value }}
                             </p>
 
                             <!-- Share Links -->
