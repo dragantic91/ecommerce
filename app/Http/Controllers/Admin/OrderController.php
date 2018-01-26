@@ -39,7 +39,8 @@ class OrderController extends AdminController
                 })
                 ->linkColumn('view',['label' => __('lang.view')], function($model) {
                     return "<a href='". route('admin.order.view', $model->id)."' >".__('lang.view')."</a>";
-                });
+                })
+            ->setPagination(100);
 
         return view('admin.order.index')->with('dataGrid', $dataGrid);
     }

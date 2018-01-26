@@ -177,7 +177,7 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::get('buyer', ['as' => 'admin.buyer.index', 'uses' => 'BuyerController@index']);
             Route::resource('newsletter', 'NewsletterController', ['as' => 'admin']);
 
-            Route::get('pdfview',['as'=>'pdfview','uses'=>'NewsletterController@pdfView']);
+            Route::get('csvview',['as'=>'csvview','uses'=>'NewsletterController@csvView']);
 
             Route::get('page/home', ['as' => 'admin.page.home', 'uses' => 'PageController@home']);
             Route::get('page/home/create', ['as' => 'admin.home.create', 'uses' => 'PageController@homeCreate']);

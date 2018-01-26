@@ -19,7 +19,8 @@ class PageController extends Base
             ->column('heading', ['sortable' => true, 'label' => __('lang.heading')])
             ->linkColumn('destroy', ['label' => __('lang.destroy')], function ($model) {
                 return  "<a href=' " . route('admin.home.destroy', $model->id) . " ' >".__('lang.destroy')."</a>";
-            });
+            })
+            ->setPagination(100);
 
         return view('admin.page.home.index')->with('dataGrid', $dataGrid);
     }
@@ -74,7 +75,8 @@ class PageController extends Base
             ->column('banner_name', ['sortable' => true, 'label' => __('lang.banner-name')])
             ->linkColumn('destroy', ['label' => __('lang.destroy')], function ($model) {
                 return  "<a href=' " . route('admin.uber-uns.destroy', $model->id) . " ' >".__('lang.destroy')."</a>";
-            });
+            })
+            ->setPagination(100);
 
         $text = PageUberUns::where('key', '=', 'text')->first();
 

@@ -58,7 +58,7 @@ class CategoryViewController extends Controller
         }
 
         $collection = isset($orderBy) ? $collection->orderBy(getBeforeLastChar($orderBy, '_'), getAfterLastChar($orderBy, '_')) : $collection;
-        $products = $collection->paginate($view);
+        $products = $collection->where('status', '=', '1')->paginate($view);
 
         $request->flash();
 

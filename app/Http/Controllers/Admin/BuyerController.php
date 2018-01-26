@@ -21,7 +21,8 @@ class BuyerController extends AdminController
             ->column('last_name', ['sortable' => true, 'label' => __('lang.last-name')])
             ->column('email', ['sortable' => true, 'label' => __('lang.email')])
             ->column('created_at', ['label' => __('lang.created-at')])
-            ->column('updated_at', ['label' => __('lang.last-login')]);
+            ->column('updated_at', ['label' => __('lang.last-login')])
+            ->setPagination(100);
 
         return view('admin.buyer.index')->with('dataGrid', $dataGrid);
     }

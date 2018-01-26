@@ -4,7 +4,7 @@
         {!! $dataGrid->render() !!}
         <div class="text-right">
             <p>
-                <a class="btn btn-secondary" style="text-decoration: none;" href="{{ route('pdfview',['download'=>'pdf']) }}">PDF Herunterladen</a>
+                <a class="btn btn-secondary" style="text-decoration: none;" href="{{ route('csvview',['download'=>'csv']) }}">CSV Herunterladen</a>
             </p>
         </div>
     </div>

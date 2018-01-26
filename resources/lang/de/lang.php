@@ -20,7 +20,7 @@ return [
     'category' => 'Kategorien',
     'sales' => 'Bestellungen',
     'orders' => 'Aufträge',
-    'orders-sold' => 'Aufträge Verkauft',
+    'orders-sold' => 'Artikel verkauft',
     'system' => 'System',
     'admin-users' => 'Admin-Benutzer',
     'change-password' => 'Passwort ändern',

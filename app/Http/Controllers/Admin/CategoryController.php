@@ -28,7 +28,8 @@ class CategoryController extends AdminController
                             <input name='_method' type='hidden' value='DELETE' />" . csrf_field() .
                             "<a href='#' onclick=\"jQuery('#admin-category-destroy-$model->id').submit()\">". __('lang.delete') ."</a>
                         </form>";
-            });
+            })
+            ->setPagination(100);
 
         return view('admin.category.index')
             ->with('dataGrid', $dataGrid);

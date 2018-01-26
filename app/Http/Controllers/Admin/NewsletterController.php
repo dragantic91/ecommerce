@@ -32,7 +32,8 @@ class NewsletterController extends AdminController
                                             onclick=\"jQuery('#admin-newsletter-destroy-$model->id').submit()\"
                                             >". __('lang.delete') ."</a>
                                     </form>";
-            });
+            })
+            ->setPagination(100);
 
         return view('admin.newsletter.index')->with('dataGrid', $dataGrid);
     }
@@ -43,7 +44,7 @@ class NewsletterController extends AdminController
         return redirect()->route('admin.newsletter.index');
     }
 
-    public function pdfView(Request $request)
+    public function csvView(Request $request)
     {
         $subscribers = Subscriber::all();
         view()->share('subscribers', $subscribers);
@@ -53,8 +54,8 @@ class NewsletterController extends AdminController
 
             $title = 'Newsletter';
             
-            $spreadsheet->getProperties()->setCreator('Webtory')
-                ->setLastModifiedBy('Webtory')
+            $spreadsheet->getProperties()->setCreator('Schoengebraucht')
+                ->setLastModifiedBy('Schoengebraucht')
                 ->setTitle($title)
                 ->setSubject($title)
                 ->setDescription($title)
@@ -87,10 +88,11 @@ class NewsletterController extends AdminController
 
             $writer = IOFactory::createWriter($spreadsheet, 'Csv');
             $writer->setDelimiter(';');
-            $writer->setEnclosure('');
             $writer->save('php://output');
+        } else {
+
+            return view('admin.newsletter.pdfview');
         }
 
-        return view('admin.newsletter.pdfview');
     }
 }

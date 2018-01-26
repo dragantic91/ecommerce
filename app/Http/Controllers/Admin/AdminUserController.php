@@ -37,7 +37,8 @@ class AdminUserController extends AdminController
                                                     onclick=\"jQuery('#admin-admin-user-destroy-$model->id').submit()\"
                                                     >".__('lang.destroy')."</a>
                        </form>";
-            });
+            })
+            ->setPagination(100);
         return view('admin.admin-user.index')->with('dataGrid', $dataGrid);
     }
 
