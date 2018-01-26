@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use App\DataGrid\Facade as DataGrid;
 use App\Models\Database\PageHome;
 use Illuminate\Support\Facades\File;
-//use Intervention\Image\Facades\Image;
-//use Intervention\Image\ImageManager;
+use Intervention\Image\Facades\Image;
 
 class PageController extends Base
 {
@@ -35,7 +34,7 @@ class PageController extends Base
     public function homeStore(Request $request)
     {
         $this->validate($request, [
-           'heading' => 'required',
+            'heading' => 'required',
             'body' => 'required',
             'button' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png|max:2048'
@@ -43,10 +42,10 @@ class PageController extends Base
 
         $image = $request->image;
         $name = time() . $image->getClientOriginalName();
-        $folder = '\front\assets\img\slider';
+        $folder = '\front\assets\img\slider\\';
         $savePath = public_path($folder);
-        $image->move($savePath, $name);
-        $dbPath = $folder . '\\' . $name;
+        Image::make($image->getRealPath())->resize(1140, 480)->save($savePath . $name);
+        $dbPath = $folder . $name;
 
 
         PageHome::create([
@@ -55,6 +54,7 @@ class PageController extends Base
             'button' => $request->button,
             'image' => $dbPath
         ]);
+
         return redirect()->route('admin.page.home');
     }
 
@@ -113,20 +113,17 @@ class PageController extends Base
 
         $image = $request->image;
         $name = time() . $image->getClientOriginalName();
-        $folder = '\front\assets\img\about';
+        $folder = '\front\assets\img\about\\';
         $savePath = public_path($folder);
-//        $manager = new ImageManager(array('driver' => 'gd'));
-//        $image = $manager->make($image->getRealPath())->resize(1140, 480)->save($savePath);
-//        Image::make($image->getRealPath())->resize(1140, 480)->save($savePath);
-        $image->move($savePath, $name);
-        $dbPath = $folder . '\\' . $name;
-
+        Image::make($image->getRealPath())->resize(1140, 480)->save($savePath . $name);
+        $dbPath = $folder . $name;
 
         PageUberUns::create([
             'banner_name' => $request->banner_name,
             'key' => 'image',
             'value' => $dbPath
         ]);
+
         return redirect()->route('admin.page.uber-uns');
     }
 
@@ -135,6 +132,7 @@ class PageController extends Base
         $banner = PageUberUns::findorfail($id);
         File::delete(public_path($banner->value));
         $banner->delete();
+
         return redirect()->back();
     }
 
@@ -142,6 +140,7 @@ class PageController extends Base
     public function wirKaufen()
     {
         $description = PageWirKaufen::all()->first();
+
         return view('admin.page.wirKaufen.index')
             ->with('description', $description);
     }
@@ -149,6 +148,10 @@ class PageController extends Base
 
     public function updateWirKaufen(Request $request, $id)
     {
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+
         $description = PageWirKaufen::findorfail($id);
         $description->body = $request->body;
         $description->update();

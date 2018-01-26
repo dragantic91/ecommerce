@@ -54,7 +54,7 @@
                         </li>
                     @else
                         <li class="topauth">
-                            <a href="{{ route('login') }}">
+                            <a href="{{ route('register') }}">
                                 <i class="fa fa-lock"></i>
                                 <span class="shop-menu-ttl">Registrierung</span>
                             </a>

@@ -60,10 +60,16 @@ class Category extends BaseModel
 
         foreach ($categories as $category)
         {
-            $data[] = [
-                'object' => $category,
-                'children' => $this->list_categories($category->children),
-            ];
+            $childs = $this->getChilds($category->id);
+            $products = $category->products;
+            if (count($childs)>0 || count($products)>0){
+
+                $data[] = [
+                    'object' => $category,
+                    'children' => $this->list_categories($category->children),
+                ];
+
+            }
         }
 
         return $data;

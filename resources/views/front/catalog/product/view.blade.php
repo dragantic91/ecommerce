@@ -76,7 +76,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="slug" value="{{ $product->slug }}"/>
                         <p class="prod-qnt">
-                            <input id="prodQnt" name="qty" value="1" type="text">
+                            <input id="prodQnt" class="prod-qty" name="qty" value="1" type="text" data-max="{{ $product->qty }}">
                             <a id="prodPlus" class="prod-plus"><i class="fa fa-angle-up"></i></a>
                             <a id="prodMinus" class="prod-minus"><i class="fa fa-angle-down"></i></a>
                         </p>
@@ -185,20 +185,38 @@
 
 @section('scripts')
     <script>
-        $('#prodPlus').click(function () {
-            var value = parseInt($('#prodQnt').val());
+        $('.prod-qty').on('change', function () {
+            var $this = $(this);
+            var max = parseInt($this.data('max'));
+
+            if ($this.val() > max) {
+                $this.val(max);
+            }
+        });
+
+        $('.prod-plus').click(function () {
+            var $this = $(this);
+            var $qnt = $('.prod-qty', $this.parent());
+            var value = parseInt($qnt.val());
+
+            var max = parseInt($qnt.data('max'));
+
             if (value < 0)
                 value = 0;
-            value += 1;
-            $('#prodQnt').val(value);
+            if (value < max)
+                value += 1;
+            $qnt.val(value);
         });
-        $('#prodMinus').click(function () {
-            var value = parseInt($('#prodQnt').val());
+        $('.prod-minus').click(function () {
+            var $this = $(this);
+            var $qnt = $('.prod-qty', $this.parent());
+            var value = parseInt($qnt.val());
             if (value > 0)
                 value -= 1;
             if (value < 0)
                 value = 0;
-            $('#prodQnt').val(value);
+            $qnt.val(value);
         });
+
     </script>
 @endsection

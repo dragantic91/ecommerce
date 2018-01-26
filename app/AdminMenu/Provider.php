@@ -53,53 +53,30 @@ class Provider extends ServiceProvider
     protected function registerMenu()
     {
         /**
-         * Add Menu Catalog
+         * Add Menu Product
          */
-        AdminMenuFacade::add('catalog')
-                        ->label(__('lang.catalog'))
-                        ->route("#");
-        $catalogMenu = AdminMenuFacade::get('catalog');
-
-        /**
-         * Add Submenu Product
-         */
-        $productMenu = new AdminMenu();
-        $productMenu->key('product')
-                    ->label(__('lang.product'))
-                    ->route('admin.product.index');
-        $catalogMenu->subMenu('product',$productMenu);
-
-        /**
-         * Add Submenu Category
-         */
-        $categoryMenu = new AdminMenu();
-        $categoryMenu->key('category')
-                     ->label(__('lang.category'))
-                     ->route('admin.category.index');
-        $catalogMenu->subMenu('category', $categoryMenu);
+        AdminMenuFacade::add('product')
+            ->label(__('lang.product'))
+            ->route('admin.product.index');
 
         /**
          * Add Menu Sales
          */
         AdminMenuFacade::add('sale')
-            ->label(__('lang.sales'))
-            ->route("#");
-        $saleMenu = AdminMenuFacade::get('sale');
-
+            ->label(__('lang.orders-sold'))
+            ->route('admin.order.index');
 
         /**
-         * Add Submenu Orders
+         * Add Menu Category
          */
-        $orderMenu = new AdminMenu();
-        $orderMenu->key('order')
-            ->label(__('lang.orders'))
-            ->route('admin.order.index');
-        $saleMenu->subMenu('order',$orderMenu);
+        AdminMenuFacade::add('category')
+            ->label(__('lang.category'))
+            ->route('admin.category.index');
 
         /**
          * Add Menu Customers
          */
-        AdminMenuFacade::add('buyers')
+        AdminMenuFacade::add('customers')
             ->label(__('lang.customer'))
             ->route("admin.buyer.index");
 

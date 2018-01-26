@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-3 h1">{{ __('lang.orders') }}</div>
+            <div class="col-3 h1" style="font-size: 32px">{{ __('lang.orders-sold') }}</div>
             <div class="col-3">
                 <select class="form-control" name="select-shipping" onchange="location=this.value;">
                     <option value="{{ urldecode(route('admin.order.index', array_merge(request()->query(), ['delivery_type' => '']), false)) }}" @if (app('request')->input('delivery_type') == null || app('request')->input('delivery_type') == '') selected @endif>Wählen Sie den Zustelltyp aus</option>

@@ -27,10 +27,6 @@
                     <div class="card product-card  mb-2 mt-2">
                         <div class="card-header">
                             {{ __('lang.basic-details') }}
-                            <a data-toggle="collapse" data-parent="#product-save-accordion"
-                               class="float-right" href="#basic">
-                                <i class="oi oi-caret-bottom"></i>
-                            </a>
                         </div>
                         <div class="card-body collapse show" id="basic">
                             @include('admin.product.card.basic', ['editMethod' => true])
@@ -40,12 +36,8 @@
                     <div class="card product-card mb-2 mt-2">
                         <div class="card-header">
                             {{ __('lang.images') }}
-                            <a data-toggle="collapse" data-parent="#product-save-accordion"
-                               class="float-right" href="#images">
-                                <i class="oi oi-caret-bottom"></i>
-                            </a>
                         </div>
-                        <div class="card-body collapse" id="images">
+                        <div class="card-body" id="images">
                             @include('admin.product.card.images')
                         </div>
                     </div>

@@ -45,6 +45,7 @@ class Manager
 
     public function setPagination($item = 10) {
         $this->pageItem = $item;
+        return $this;
     }
 
     public function render() {

@@ -45,13 +45,6 @@
                         <li class="prod-i">
                             <div class="prod-i-top">
                                 <a href="{{ route('product.view', $product->slug)}}" class="prod-i-img"><img src="{{ $image->$imageType }}"></a>
-                                <form method="post" action="{{ route('cart.add-to-cart') }}">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="slug" value="{{ $product->slug }}"/>
-                                    <button type="submit" class="prod-i-buy">
-                                        In den Warenkorb
-                                    </button>
-                                </form>
                             </div>
                             <div class="prod-sticker">
                                 @if($product->discount == 1)

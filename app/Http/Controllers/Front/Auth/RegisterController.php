@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Auth;
 
 use App\Events\UserRegisteredEvent;
 use App\Http\Controllers\Controller;
+use App\Models\Database\Address;
 use App\Models\Database\Subscriber;
 use App\Models\Database\User;
 use Bestmomo\LaravelEmailConfirmation\Traits\RegistersUsers;
@@ -96,7 +97,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'title' => $data['title'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -104,11 +105,29 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'token' => base64_encode($data['email']),
         ]);
+
+        Address::create([
+            'user_id' => $user->id,
+            'type' => 'BILLING',
+            'first_name' => $data['first_name'],
+            'last_name' =>$data['last_name'],
+            'address1' => $data['address'],
+            'postcode' => $data['zip'],
+            'city' => $data['city'],
+            'phone' => $data['phone'],
+        ]);
+
+        return $user;
     }
 
     protected function guard()
     {
         return Auth::guard('web');
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('front.auth.register');
     }
 
     public function verify($token)

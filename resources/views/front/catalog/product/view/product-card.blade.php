@@ -5,15 +5,6 @@
         <a href="{{ route('product.view', $product->slug)}}" title="{{ $product->name }}" class="prod-i-img">
             @include('front.catalog.product.view.product-image',['product' => $product])
         </a>
-        <p class="prod-i-info">
-        </p>
-        <form method="post" action="{{ route('cart.add-to-cart') }}">
-            {{ csrf_field() }}
-            <input type="hidden" name="slug" value="{{ $product->slug }}"/>
-            <button type="submit" class="prod-i-buy">
-                In den Warenkorb
-            </button>
-        </form>
     </div>
     <div class="prod-sticker">
         @if($product->discount == 1)

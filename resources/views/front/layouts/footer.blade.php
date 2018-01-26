@@ -29,7 +29,7 @@
                 <h3>Newsletter abonnieren</h3>
                 <form method="post" action="{{ route('subscribe') }}" class="f-subscribe-form">
                     {{ csrf_field() }}
-                    <input placeholder="Your e-mail" type="email" name="email" required>
+                    <input placeholder="Ihre Email" type="email" name="email" required>
                     <button type="submit"><i class="fa fa-paper-plane"></i></button>
                 </form>
                 <p>Geben Sie Ihre Emailadresse ein, wenn Sie unseren Newsletter erhalten möchten. Abonnieren Sie jetzt!</p>

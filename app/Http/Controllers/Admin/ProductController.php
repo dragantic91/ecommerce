@@ -24,9 +24,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $dataGrid = DataGrid::model(Product::query())
-            ->column('product_no', ['sortable' => true, 'label' => __('lang.product-number')])
+        $dataGrid = DataGrid::model(Product::query()->orderBy('created_at', 'desc'))
             ->column('name', ['sortable' => true, 'label' => __('lang.name')])
+            ->column('product_no', ['sortable' => true, 'label' => __('lang.product-number')])
             ->linkColumn(__('lang.edit'), [], function ($model) {
                 return "<a href='" . route('admin.product.edit', $model->id) . "' >".__('lang.edit')."</a>";
             })
@@ -40,7 +40,8 @@ class ProductController extends Controller
                                             onclick=\"jQuery('#admin-product-destroy-$model->id').submit()\"
                                             >". __('lang.delete') ."</a>
                                     </form>";
-            });
+            })
+            ->setPagination(100);
 
         return view('admin.product.index')
             ->with('dataGrid', $dataGrid);
