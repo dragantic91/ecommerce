@@ -22,16 +22,16 @@
                             <label for="email">E-mail <span class="required">*</span></label><input id="email" type="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus>
                             @if ($errors->has('email'))
                                 <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                             @endif
                         </p>
                         <p>
                             <label for="password">{{ __('front.account-password') }} <span class="required">*</span></label><input id="password" class="form-control" type="password" name="password" required>
                             @if ($errors->has('password'))
                                 <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
                             @endif
                         </p>
                         <p class="auth-submit">

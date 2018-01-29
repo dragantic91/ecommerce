@@ -62,6 +62,7 @@ return [
     'button' => 'Knopf',
     'body' => 'Inhalt',
     'banner-name' => 'Banner Titel',
+    'recommended-image-format' => 'Empfohlener Bildformat',
 
 
     'order-view' => 'Bestellansicht',

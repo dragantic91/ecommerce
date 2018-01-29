@@ -52,26 +52,54 @@ class Provider extends ServiceProvider
 
     protected function registerMenu()
     {
+        AdminMenuFacade::add('catalog')
+            ->label(__('lang.catalog'))
+            ->route("#");
+        $catalogMenu = AdminMenuFacade::get('catalog');
+
         /**
-         * Add Menu Product
+         * Add Submenu Product
          */
-        AdminMenuFacade::add('product')
+        $productMenu = new AdminMenu();
+        $productMenu->key('product')
             ->label(__('lang.product'))
             ->route('admin.product.index');
+        $catalogMenu->subMenu('product',$productMenu);
+
+        /**
+         * Add Submenu Category
+         */
+        $categoryMenu = new AdminMenu();
+        $categoryMenu->key('category')
+            ->label(__('lang.category'))
+            ->route('admin.category.index');
+        $catalogMenu->subMenu('category', $categoryMenu);
+
+        /**
+         * Add Submenu Pages
+         */
+        $pageMenu = new AdminMenu();
+        $pageMenu->key('page')
+            ->label(__('lang.pages'))
+            ->route('admin.page.index');
+        $catalogMenu->subMenu('page', $pageMenu);
 
         /**
          * Add Menu Sales
          */
         AdminMenuFacade::add('sale')
-            ->label(__('lang.orders-sold'))
-            ->route('admin.order.index');
+            ->label(__('lang.sales'))
+            ->route("#");
+        $saleMenu = AdminMenuFacade::get('sale');
 
         /**
-         * Add Menu Category
+         * Add Submenu Orders
          */
-        AdminMenuFacade::add('category')
-            ->label(__('lang.category'))
-            ->route('admin.category.index');
+        $orderMenu = new AdminMenu();
+        $orderMenu->key('order')
+            ->label(__('lang.orders'))
+            ->route('admin.order.index');
+        $saleMenu->subMenu('order',$orderMenu);
 
         /**
          * Add Menu Customers
@@ -108,36 +136,6 @@ class Provider extends ServiceProvider
             ->label(__('lang.change-password'))
             ->route('admin.change-password.index');
         $systemMenu->subMenu('change-password', $changePasswordMenu);
-
-        /**
-         * Add Menu Pages
-         */
-        AdminMenuFacade::add('home')
-            ->label(__('lang.pages'))
-            ->route("#");
-        $homeMenu = AdminMenuFacade::get('home');
-
-        /**
-
-         * Add Submenu
-         */
-        $homeSubMenu = new AdminMenu();
-        $homeSubMenu->key('home')
-            ->label('Home')
-            ->route('admin.page.home');
-        $homeMenu->subMenu('home', $homeSubMenu);
-
-        $uberUnsMenu = new AdminMenu();
-        $uberUnsMenu->key('uber-uns')
-            ->label('Uber Uns')
-            ->route('admin.page.uber-uns');
-        $homeMenu->subMenu('uber-uns',  $uberUnsMenu);
-
-        $wirKaufenMenu = new AdminMenu();
-        $wirKaufenMenu->key('wir-kaufen')
-            ->label('Wir Kaufen')
-            ->route('admin.page.wir-kaufen');
-        $homeMenu->subMenu('wir-kaufen',  $wirKaufenMenu);
 
     }
 

@@ -14,6 +14,8 @@
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Cookie;
 
+// FOR TESTING
+/*
 Route::get('/luisb', function() {
     return view('testprotection');
 })->name('luisb');
@@ -35,6 +37,10 @@ Route::post('/luisb', function() {
 
 Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
 ->group(function () {
+
+
+});
+*/
 
     Route::middleware(['web'])
         ->namespace('\Front')
@@ -158,10 +164,10 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
             Route::resource('category', 'CategoryController', ['as' => 'admin']);
 
             Route::resource('product', 'ProductController', ['as' => 'admin']);
-            Route::post('product-image/upload', ['as' => 'admin.product.upload-image',
-                'uses' => 'ProductController@uploadImage']);
-            Route::post('product-image/delete', ['as' => 'admin.product.delete-image',
-                'uses' => 'ProductController@deleteImage']);
+            Route::post('product-image/upload', ['as' => 'admin.product.upload-image', 'uses' => 'ProductController@uploadImage']);
+            Route::post('product-image/delete', ['as' => 'admin.product.delete-image', 'uses' => 'ProductController@deleteImage']);
+
+            Route::resource('/page', 'PageController', ['as' => 'admin']);
 
             Route::resource('/admin-user', 'AdminUserController', ['as' => 'admin']);
             Route::resource('/change-password', 'ChangePasswordController', ['as' => 'admin']);
@@ -179,19 +185,6 @@ Route::middleware(['testprotection']) // REMOVE IN PRODUCTION!!!
 
             Route::get('csvview',['as'=>'csvview','uses'=>'NewsletterController@csvView']);
 
-            Route::get('page/home', ['as' => 'admin.page.home', 'uses' => 'PageController@home']);
-            Route::get('page/home/create', ['as' => 'admin.home.create', 'uses' => 'PageController@homeCreate']);
-            Route::post('page/home/create', ['as' => 'admin.home.store', 'uses' => 'PageController@homeStore']);
-            Route::get('page/home/delete/{id}', ['as' => 'admin.home.destroy', 'uses' => 'PageController@homeDestroy']);
-
-            Route::get('page/uber-uns', ['as' => 'admin.page.uber-uns', 'uses' => 'PageController@uberUns']);
-            Route::get('page/uber-uns/create', ['as' => 'admin.uber-uns.create', 'uses' => 'PageController@bannerUberUnsCreate']);
-            Route::post('page/uber-uns/create', ['as' => 'admin.uber-uns.store', 'uses' => 'PageController@bannerUberUnsStore']);
-            Route::post('page/uber-uns/update/{id}', ['as' => 'admin.uber-uns.update.text', 'uses' => 'PageController@textUpdateUberUns']);
-            Route::get('page/uber-uns/delete/{id}', ['as' => 'admin.uber-uns.destroy', 'uses' => 'PageController@bannerUberUnsDestroy']);
-
-            Route::get('page/wir-kaufen', ['as' => 'admin.page.wir-kaufen', 'uses' => 'PageController@wirKaufen']);
-            Route::post('page/wirkaufen/update/{id}', ['as' => 'admin.wir-kaufen.update', 'uses' => 'PageController@updateWirKaufen']);
         });
 
 Route::middleware(['web'])
@@ -327,4 +320,3 @@ Route::middleware(['web', 'admin.auth'])
         Route::resource('newsletter', 'NewsletterController', ['as' => 'admin']);
 
     });
-});

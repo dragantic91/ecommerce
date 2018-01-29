@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'cancel' => 'Cancel',
     'please-select' => 'Please Select',
     'name' => 'Name',
@@ -17,6 +16,7 @@ return [
     'category' => 'Category',
     'sales' => 'Sales',
     'orders' => 'Orders',
+    'orders-sold' => 'Orders',
     'system' => 'System',
     'admin-users' => 'Admin Users',
     'change-password' => 'Change Password',
@@ -35,12 +35,16 @@ return [
     'select-delivery-status' => 'Select Delivery Status',
     'newsletter' => 'Newsletter',
     'tax-amount' => 'Tax',
+    'pages' => 'Pages',
+    'button' => 'Button',
+    'body' => 'Body',
+
 
     'order-view' => 'Order View',
     'order-basic-info' => 'Order Basic Info',
     'order-number' => 'Order No.',
     'order-shipping-option' => 'Shipping Option',
-    'order-status' => 'Status',
+    'status' => 'Status',
     'order-item-info' => 'Order Item Info',
     'order-title' => 'Title',
     'order-save' => 'Save',
@@ -57,9 +61,13 @@ return [
     'admin-password-label' => 'Password',
     'admin-email-label' => 'Email Address',
     'admin-create-admin-user-button-title' => 'Create Admin User',
+    'admin-create-new-banner' => 'Create New Banner',
+    'admin-update-text' => 'Update Text',
     'created-at' => 'Created At',
     'last-login' => 'Last Login',
+    'images' => 'Images',
 
+    'heading' => 'Heading',
 
     'admin-dashboard-total-user-title' => 'Total User',
     'admin-dashboard-total-order-title' => 'Total Orders',
@@ -83,5 +91,18 @@ return [
     'shipping-option' => 'Shipping Option',
     'payment-option' => 'Payment Option',
     'order-status' => 'Order Status',
+
+    'banner-name' => 'Banner Name',
+    'recommended-image-format' => 'Recommended Image Fromat',
+
+    'slug' => 'Link',
+    'content' => 'Content',
+    'meta-title' => 'Meta Title',
+    'meta-description' => 'Meta Description',
+
+    'week' => 'Week',
+    'month' => 'Month',
+    'year' => 'Year',
+    'custom' => 'Custom',
 
 ];

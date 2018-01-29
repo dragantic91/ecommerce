@@ -35,16 +35,20 @@
                             <!-- Slider -->
                             <div class="flexslider post-slider" id="post-slider-car">
                                 <ul class="slides">
-                                    @foreach($banners as $banner)
                                     <li>
-                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="{{ $banner->value }}"><img src="{{ $banner->value }}" alt=""></a>
+                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="/front/assets/img/about/1.jpg"><img src="/front/assets/img/about/1516893129testslider.jpg" alt=""></a>
                                     </li>
-                                    @endforeach
+                                    <li>
+                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="/front/assets/img/about/1.jpg"><img src="/front/assets/img/about/1516893129testslider.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a data-fancybox-group="fancy-img" class="fancy-img" href="/front/assets/img/about/1.jpg"><img src="/front/assets/img/about/1516893129testslider.jpg" alt=""></a>
+                                    </li>
                                 </ul>
                             </div>
 
                             <p class="text-justify">
-                                {{ $text->value }}
+                                {!! $page->content !!}
                             </p>
 
                             <!-- Share Links -->

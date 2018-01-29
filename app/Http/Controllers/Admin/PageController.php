@@ -2,162 +2,86 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Database\PageUberUns;
-use App\Models\Database\PageWirKaufen;
-use Illuminate\Http\Request;
+use App\Http\Requests\PageRequest;
+use App\Models\Database\Page;
 use App\DataGrid\Facade as DataGrid;
-use App\Models\Database\PageHome;
-use Illuminate\Support\Facades\File;
-use Intervention\Image\Facades\Image;
 
-class PageController extends Base
+class PageController extends AdminController
 {
-
-    public function home()
+    /**
+     * Display a listing of the Page.
+     */
+    public function index()
     {
-        $dataGrid = DataGrid::model(PageHome::query())
-            ->column('heading', ['sortable' => true, 'label' => __('lang.heading')])
-            ->linkColumn('destroy', ['label' => __('lang.destroy')], function ($model) {
-                return  "<a href=' " . route('admin.home.destroy', $model->id) . " ' >".__('lang.destroy')."</a>";
-            })
-            ->setPagination(100);
+        $dataGrid = DataGrid::model(Page::query())
+            ->column('id',['sortable' => true])
+            ->column('name', ['label' => __('lang.name'), 'sortable' => true])
+            ->column('slug', ['label' => __('lang.slug'), 'sortable' => true])
+            ->column('meta_title', ['label' => __('lang.meta-title')])
+            ->linkColumn('edit',[], function($model) {
+                return "<a href='". route('admin.page.edit', $model->id)."' >". __('lang.edit')."</a>";
 
-        return view('admin.page.home.index')->with('dataGrid', $dataGrid);
+            })->linkColumn('destroy',['label' => __('lang.delete')], function($model) {
+                return "<form id='admin-page-destroy-".$model->id."'
+                                            method='POST'
+                                            action='".route('admin.page.destroy', $model->id) ."'>
+                                        <input name='_method' type='hidden' value='DELETE' />
+                                        ". csrf_field()."
+                                        <a href='#'
+                                            onclick=\"jQuery('#admin-page-destroy-$model->id').submit()\"
+                                            >". __('lang.delete')."</a>
+                                    </form>";
+            });
+
+        return view('admin.page.index')->with('dataGrid', $dataGrid);
     }
 
-
-    public function homeCreate()
+    /**
+     * Show the form for creating a new page.
+     */
+    public function create()
     {
-        return view('admin.page.home.create');
+        return view('admin.page.create');
     }
 
-
-    public function homeStore(Request $request)
+    /**
+     * Store a newly created page in database.
+     */
+    public function store(PageRequest $request)
     {
-        $this->validate($request, [
-            'heading' => 'required',
-            'body' => 'required',
-            'button' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png|max:2048'
-        ]);
+        Page::create($request->all());
 
-        $image = $request->image;
-        $name = time() . $image->getClientOriginalName();
-        $folder = '\front\assets\img\slider\\';
-        $savePath = public_path($folder);
-        Image::make($image->getRealPath())->resize(1140, 480)->save($savePath . $name);
-        $dbPath = $folder . $name;
-
-
-        PageHome::create([
-            'heading' => strtoupper($request->heading),
-            'body' => $request->body,
-            'button' => $request->button,
-            'image' => $dbPath
-        ]);
-
-        return redirect()->route('admin.page.home');
+        return redirect()->route('admin.page.index');
     }
 
-
-    public function homeDestroy($id)
+    /**
+     * Show the form for editing the specified page.
+     */
+    public function edit($id)
     {
-        $slider = PageHome::findorfail($id);
-        File::delete(public_path($slider->image));
-        $slider->delete();
-        return redirect()->back();
+        $page = Page::findorfail($id);
+
+        return view('admin.page.edit')->with('model', $page);
     }
 
-
-    public function uberUns()
+    /**
+     * Update the specified page in database.
+     */
+    public function update(PageRequest $request, $id)
     {
-        $dataGrid = DataGrid::model(PageUberUns::query()->where('key', '=', 'image'))
-            ->column('banner_name', ['sortable' => true, 'label' => __('lang.banner-name')])
-            ->linkColumn('destroy', ['label' => __('lang.destroy')], function ($model) {
-                return  "<a href=' " . route('admin.uber-uns.destroy', $model->id) . " ' >".__('lang.destroy')."</a>";
-            })
-            ->setPagination(100);
+        $page = Page::findorfail($id);
+        $page->update($request->all());
 
-        $text = PageUberUns::where('key', '=', 'text')->first();
-
-        return view('admin.page.uberUns.index')
-            ->with(['text' => $text, 'dataGrid' => $dataGrid]);
+        return redirect()->route('admin.page.index');
     }
 
-
-    public function textUpdateUberUns(Request $request, $id)
+    /**
+     * Remove the specified page from storage.
+     */
+    public function destroy($id)
     {
-        $this->validate($request, [
-            'body' => 'required',
-        ]);
+        Page::destroy($id);
 
-        $text = PageUberUns::findorfail($id);
-        $text->value = $request->body;
-        $text->update();
-
-        return redirect()->back()
-            ->with(['success' => __('lang.update-success')]);
-    }
-
-
-    public function bannerUberUnsCreate()
-    {
-        return view('admin.page.uberUns.create');
-    }
-
-
-    public function bannerUberUnsStore(Request $request)
-    {
-        $this->validate($request, [
-            'banner_name' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png|max:2048'
-        ]);
-
-        $image = $request->image;
-        $name = time() . $image->getClientOriginalName();
-        $folder = '\front\assets\img\about\\';
-        $savePath = public_path($folder);
-        Image::make($image->getRealPath())->resize(1140, 480)->save($savePath . $name);
-        $dbPath = $folder . $name;
-
-        PageUberUns::create([
-            'banner_name' => $request->banner_name,
-            'key' => 'image',
-            'value' => $dbPath
-        ]);
-
-        return redirect()->route('admin.page.uber-uns');
-    }
-
-    public function bannerUberUnsDestroy($id)
-    {
-        $banner = PageUberUns::findorfail($id);
-        File::delete(public_path($banner->value));
-        $banner->delete();
-
-        return redirect()->back();
-    }
-
-
-    public function wirKaufen()
-    {
-        $description = PageWirKaufen::all()->first();
-
-        return view('admin.page.wirKaufen.index')
-            ->with('description', $description);
-    }
-
-
-    public function updateWirKaufen(Request $request, $id)
-    {
-        $this->validate($request, [
-            'body' => 'required'
-        ]);
-
-        $description = PageWirKaufen::findorfail($id);
-        $description->body = $request->body;
-        $description->update();
-
-        return redirect()->back()->with(['success' => __('lang.update-success')]);
+        return redirect()->route('admin.page.index');
     }
 }

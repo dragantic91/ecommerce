@@ -32,27 +32,16 @@ class PageController extends Controller
 
     public function about()
     {
-        $text = PageUberUns::where('key', '=', 'text')->first();
-
-        $banners = PageUberUns::where('key', '=', 'image')->get();
-
         $page = Page::where('slug', '=', 'about-us')->first();
 
-        return view('front.page.about')
-            ->with([
-                'page' => $page,
-                'text' => $text,
-                'banners' => $banners
-            ]);
+        return view('front.page.about')->with('page', $page);
     }
 
-    public function wirKaufen() {
+    public function wirKaufen()
+    {
+        $page = Page::where('slug', '=', 'wir-kaufen')->first();
 
-        $description = PageWirKaufen::all()->first();
-
-        $page = Page::where('slug', '=', 'wir')->first();
-
-        return view('front.page.wirKaufen', compact('page', 'description'));
+        return view('front.page.wirKaufen', compact('page'));
     }
 
     public function sendWirEmail(Request $request)

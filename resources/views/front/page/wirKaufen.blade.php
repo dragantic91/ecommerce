@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>{{ $page->title }}</h1>
+                <h1>{{ $page->name }}</h1>
 
                 <main>
                     <section class="container stylization maincont">
@@ -32,7 +32,7 @@
                         <!-- Contacts - start -->
                         <br>
                         <p class="text-justify">
-                            {{ $description->body }}
+                            {!! $page->content !!}
                         </p>
 
                         <!-- Contact Form -->
